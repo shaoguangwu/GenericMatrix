@@ -4,10 +4,10 @@ C++ generic matrix template class, C++11 Required Support.
 
 C++通用矩阵类设计，需编译器支持C++11.
 
-...cpp
+```cpp
     GenericMatrix<> matrix(10, 5);
     std::cout << matrix << std::endl;
-...
+```
 
 The Result is:
 "
