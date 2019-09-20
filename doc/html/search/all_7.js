@@ -1,6 +1,6 @@
 var searchData=
 [
-  ['operator_20_2a',['operator *',['../class_generic_matrix.html#aab18dba5fe051591ac48f32397e0171f',1,'GenericMatrix::operator *()'],['../class_generic_matrix.html#a0b6c806ff0ce4ce6819ab73362459afd',1,'GenericMatrix::operator *()'],['../class_generic_matrix.html#a2a1a3734c865f6c4ef2c81e7c3aee8f5',1,'GenericMatrix::operator *()']]],
+  ['operator_20_2a',['operator *',['../class_generic_matrix.html#aab18dba5fe051591ac48f32397e0171f',1,'GenericMatrix::operator *()'],['../class_generic_matrix.html#a0a81427531905e30207d435ee4089b7c',1,'GenericMatrix::operator *()'],['../class_generic_matrix.html#a2a1a3734c865f6c4ef2c81e7c3aee8f5',1,'GenericMatrix::operator *()']]],
   ['operator_20_2a_3d',['operator *=',['../class_generic_matrix.html#a86dda6fbb03505680242d617cbad5801',1,'GenericMatrix::operator *=(const GenericMatrix&lt; Elem &gt; &amp;m)'],['../class_generic_matrix.html#adf9b19dcac5903a70d333b1bf368a07d',1,'GenericMatrix::operator *=(const Elem &amp;factor)']]],
   ['operator_21_3d',['operator!=',['../class_generic_matrix.html#a5f97fb5d9cbc429ab6854f7a9f030a6c',1,'GenericMatrix']]],
   ['operator_28_29',['operator()',['../class_generic_matrix.html#a823747dd4b9953df7024efc1d9d752c8',1,'GenericMatrix::operator()(size_type row, size_type col)'],['../class_generic_matrix.html#a74e43a4fd62a00ee7491953a5e9eff06',1,'GenericMatrix::operator()(size_type row, size_type col) const']]],

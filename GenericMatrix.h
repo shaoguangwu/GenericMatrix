@@ -131,8 +131,6 @@ private:
 */
 
 /*!
-    \fn template<typename Elem> GenericMatrix<Elem>::GenericMatrix()
-
     Constructs a invalid matrix.
 
     \sa isValid()
@@ -144,8 +142,6 @@ GenericMatrix<Elem>::GenericMatrix()
 }
 
 /*!
-    \fn template<typename Elem> GenericMatrix<Elem>::GenericMatrix(size_type row, size_type col)
-
     Constructs a \a row x \a col identity matrix.
 */
 template<typename Elem>
@@ -157,8 +153,6 @@ GenericMatrix<Elem>::GenericMatrix(size_type row, size_type col)
 }
 
 /*!
-    \fn template<typename Elem> GenericMatrix<Elem>::GenericMatrix(size_type row, size_type col, Initialization)
-
     Constructs a \a row x \a col matrix without initializing the contents.
 */
 template<typename Elem>
@@ -169,8 +163,6 @@ GenericMatrix<Elem>::GenericMatrix(size_type row, size_type col, Initialization)
 }
 
 /*!
-    \fn template<typename Elem> GenericMatrix<Elem>::~GenericMatrix()
-
     Destroys the matrix.
 */
 template<typename Elem>
@@ -180,7 +172,6 @@ GenericMatrix<Elem>::~GenericMatrix()
 }
     
 /*!
-    \fn template<typename Elem> void GenericMatrix<Elem>::alloc()
     \internal
 
     Alloc the matrix memory from \a _rows and \a _cols.
@@ -201,7 +192,6 @@ void GenericMatrix<Elem>::alloc()
 }
 
 /*!
-    \fn template<typename Elem> void GenericMatrix<Elem>::free()
     \internal
 
     Frees the matrix memory.
@@ -222,8 +212,6 @@ void GenericMatrix<Elem>::free()
 }
 
 /*!
-    \fn template<typename Elem> GenericMatrix<Elem>::GenericMatrix(const GenericMatrix &other)
-
     Constructs a copy of \a other.
 */
 template<typename Elem>
@@ -239,8 +227,6 @@ GenericMatrix<Elem>::GenericMatrix(const GenericMatrix &other)
 }
 
 /*!
-    \fn template<typename Elem> GenericMatrix<Elem>::GenericMatrix(GenericMatrix &&other)
-
     Move-constructs a GenericMatrix instance, making it point at the same object that \a other was pointing to.
 */
 template<typename Elem>
@@ -253,8 +239,6 @@ GenericMatrix<Elem>::GenericMatrix(GenericMatrix &&other)
 }
 
 /*!
-    \fn template<typename Elem> GenericMatrix<Elem> &GenericMatrix<Elem>::operator=(const GenericMatrix &other)
-
     Assigns \a other to this matrix and returns a reference to this matrix.
 */
 template<typename Elem>
@@ -281,8 +265,6 @@ GenericMatrix<Elem> &GenericMatrix<Elem>::operator=(const GenericMatrix &other)
 }
 
 /*!
-    \fn template<typename Elem> GenericMatrix<Elem> &GenericMatrix<Elem>::operator=(GenericMatrix &&other)
-
     Move-assigns \a other to this GenericMatrix instance.
 */
 template<typename Elem>
@@ -304,8 +286,6 @@ GenericMatrix<Elem> &GenericMatrix<Elem>::operator=(GenericMatrix &&other)
 }
 
 /*!
-    \fn template<typename Elem> GenericMatrix<Elem>::size_type GenericMatrix<Elem>::rows() const
-
     Returns the number of matrix rows.
 
     \sa columns()
@@ -317,8 +297,6 @@ typename GenericMatrix<Elem>::size_type GenericMatrix<Elem>::rows() const noexce
 }
 
 /*!
-    \fn template<typename Elem> GenericMatrix<Elem>::size_type GenericMatrix<Elem>::columns() const
-
     Returns the number of matrix columns.
 
     \sa rows()
@@ -330,8 +308,6 @@ typename GenericMatrix<Elem>::size_type GenericMatrix<Elem>::columns() const noe
 }
 
 /*!
-    \fn template<typename Elem> Elem **GenericMatrix<Elem>::data()
-
     Returns a pointer to the raw data of this matrix.
 
     \sa constData()
@@ -343,8 +319,6 @@ Elem **GenericMatrix<Elem>::data()
 }
 
 /*!
-    \fn template<typename Elem> const Elem * const *GenericMatrix<Elem>::data() const
-
     Returns a constant pointer to the raw data of this matrix.
 
     \sa constData()
@@ -356,8 +330,6 @@ const Elem * const *GenericMatrix<Elem>::data() const
 }
 
 /*!
-    \fn template<typename Elem> const Elem * const *GenericMatrix<Elem>::constData() const
-
     Returns a constant pointer to the raw data of this matrix.
 
     \sa data()
@@ -369,8 +341,6 @@ const Elem * const *GenericMatrix<Elem>::constData() const
 }
 
 /*!
-    \fn template<typename Elem> Elem *GenericMatrix<Elem>::operator[](size_type row)
-
     Returns a pointer to the \a row data of this matrix.
 
     \note No bounds checking is performed.
@@ -384,8 +354,6 @@ Elem *GenericMatrix<Elem>::operator[](size_type row)
 }
 
 /*!
-    \fn template<typename Elem> const Elem *GenericMatrix<Elem>::operator[](size_type row) const
-
     Returns a pointer to the \a row data of this matrix.
 
     \note No bounds checking is performed.
@@ -399,8 +367,6 @@ const Elem *GenericMatrix<Elem>::operator[](size_type row) const
 }
 
 /*!
-    \fn template<typename Elem> Elem *GenericMatrix<Elem>::rowData(size_type row)
-
     Returns a pointer to the \a row data of this matrix.
 
     \note No bounds checking is performed.
@@ -414,8 +380,6 @@ Elem *GenericMatrix<Elem>::rowData(size_type row)
 }
 
 /*!
-    \fn template<typename Elem> const Elem *GenericMatrix<Elem>::rowData(size_type row) const
-
     Returns a constant pointer to the \a row data of this matrix.
 
     \note No bounds checking is performed.
@@ -429,8 +393,6 @@ const Elem *GenericMatrix<Elem>::rowData(size_type row) const
 }
 
 /*!
-    \fn template<typename Elem> const Elem *GenericMatrix<Elem>::constRowData(size_type row) const
-
     Returns a constant pointer to the \a row data of this matrix.
 
     \note No bounds checking is performed.
@@ -444,8 +406,6 @@ const Elem *GenericMatrix<Elem>::constRowData(size_type row) const
 }
 
 /*!
-    \fn template<typename Elem> Elem *GenericMatrix<Elem>::at(size_type row)
-
     Returns a pointer to the \a row data of this matrix, with bounds checking.
 
     \exception std::out_of_range if position \a row is not within the range of the matrix.
@@ -461,8 +421,6 @@ Elem *GenericMatrix<Elem>::at(size_type row)
 }
 
 /*!
-    \fn template<typename Elem> const Elem *GenericMatrix<Elem>::at(size_type row) const
-
     Returns a constant pointer to the \a row data of this matrix, with bounds checking.
 
     \exception std::out_of_range if position \a row is not within the range of the matrix.
@@ -478,8 +436,6 @@ const Elem *GenericMatrix<Elem>::at(size_type row) const
 }
 
 /*!
-    \fn template<typename Elem> const Elem &GenericMatrix<Elem>::operator()(size_type row, size_type column) const
-
     Returns a constant reference to the element at position (\a row, \a column) in this matrix.
 
     \note No bounds checking is performed.
@@ -493,8 +449,6 @@ const Elem &GenericMatrix<Elem>::operator()(size_type row, size_type column) con
 }
 
 /*!
-    \fn template<typename Elem> Elem &GenericMatrix<Elem>::operator()(size_type row, size_type column)
-
     Returns a reference to the element at position (\a row, \a column)
     in this matrix so that the element can be assigned to.
 
@@ -509,8 +463,6 @@ Elem &GenericMatrix<Elem>::operator()(size_type row, size_type column)
 }
 
 /*!
-    \fn template<typename Elem> const Elem &GenericMatrix<Elem>::at(size_type row, size_type col) const
-
     Returns a constant reference to the element at position (\a row, \a column)
     in this matrix, with bounds checking.
 
@@ -527,8 +479,6 @@ const Elem &GenericMatrix<Elem>::at(size_type row, size_type col) const
 }
 
 /*!
-    \fn template<typename Elem> Elem &GenericMatrix<Elem>::at(size_type row, size_type col)
-
     Returns a reference to the element at position (\a row, \a column)
     in this matrix, with bounds checking.
 
@@ -545,8 +495,6 @@ Elem &GenericMatrix<Elem>::at(size_type row, size_type col)
 }
 
 /*!
-    \fn template<typename Elem> bool GenericMatrix<Elem>::isValid() const
-
     Returns \c true if this matrix internal data is not null pointer and matrix rows/cols greater than 0, otherwise returns \c false.
 */
 template<typename Elem>
@@ -556,8 +504,6 @@ bool GenericMatrix<Elem>::isValid() const noexcept
 }
 
 /*!
-    \fn template<typename Elem> bool GenericMatrix<Elem>::isIdentity() const
-
     Returns \c true if this matrix is the identity; false otherwise.
 
     \sa setToIdentity()
@@ -580,8 +526,6 @@ bool GenericMatrix<Elem>::isIdentity() const
 }
 
 /*!
-    \fn template<typename Elem> void GenericMatrix<Elem>::resize(size_type row, size_type col)
-
     Reconstructs a \a row x \a col identity matrix.
 
     \sa isIdentity()
@@ -594,8 +538,6 @@ void GenericMatrix<Elem>::resize(size_type row, size_type col)
 }
 
 /*!
-    \fn template<typename Elem> void GenericMatrix<Elem>::resize(size_type row, size_type col, Initialization)
-
     Reconstructs a \a row x \a col identity matrix  without initializing the contents.
 */
 template<typename Elem>
@@ -608,8 +550,6 @@ void GenericMatrix<Elem>::resize(size_type row, size_type col, Initialization)
 }
 
 /*!
-    \fn template<typename Elem> void GenericMatrix<Elem>::setToIdentity()
-
     Sets this matrix to the identity.
 
     \sa isIdentity()
@@ -628,8 +568,6 @@ void GenericMatrix<Elem>::setToIdentity()
 }
 
 /*!
-    \fn template<typename Elem> GenericMatrix<Elem> GenericMatrix<Elem>::transposed() const
-
     Returns this matrix, transposed about its diagonal.
 */
 template<typename Elem>
@@ -643,8 +581,6 @@ GenericMatrix<Elem> GenericMatrix<Elem>::transposed() const
 }
 
 /*!
-    \fn template<typename Elem> void GenericMatrix<Elem>::fill(const Elem &value)
-
     Fills all elements of this matrix with \a value.
 */
 template<typename Elem>
@@ -656,8 +592,6 @@ void GenericMatrix<Elem>::fill(const Elem &value)
 }
 
 /*!
-    \fn template<typename Elem> void GenericMatrix<Elem>::doHadamardProduct(const GenericMatrix<Elem> &m)
-
     Do the hadamard product of this matrix and the matrix \a m.
 
     \exception std::invalid_argument if \a m1 and \a m2 are not homomorphic.
@@ -677,8 +611,6 @@ void GenericMatrix<Elem>::doHadamardProduct(const GenericMatrix<Elem> &m)
 }
 
 /*!
-    \fn template<typename Elem> GenericMatrix<Elem> GenericMatrix<Elem>::hadamardProduct(const GenericMatrix<Elem> &m1, const GenericMatrix<Elem> &m2)
-
     Returns the hadamard product of the matrix \a m1 and the matrix \a m2.
 
     \exception std::invalid_argument if \a m1 and \a m2 are not homomorphic.
@@ -701,8 +633,6 @@ GenericMatrix<Elem> GenericMatrix<Elem>::hadamardProduct(const GenericMatrix<Ele
 }
 
 /*!
-    \fn template<typename Elem> template<typename ElemDst> GenericMatrix<ElemDst> GenericMatrix<Elem>::cast() const
-
     Returns a new element type matrix.
 
     \note The \b ElemDst must can do \c static_cast<ElemDst>(Elem).
@@ -719,8 +649,6 @@ GenericMatrix<ElemDst> GenericMatrix<Elem>::cast() const
 }
 
 /*!
-    \fn template<typename Elem> bool GenericMatrix<Elem>::isHomomorphicTo(const GenericMatrix<Elem> &m)
-
     Returns \c true if this matrix and matrix \a m are homomorphic; false otherwise.
 
     \sa isHomomorphic()
@@ -732,8 +660,6 @@ inline bool GenericMatrix<Elem>::isHomomorphicTo(const GenericMatrix<Elem> &m)
 }
 
 /*!
-    \fn template<typename Elem> bool GenericMatrix<Elem>::isHomomorphic(const GenericMatrix<Elem> &m1, const GenericMatrix<Elem> &m2)
-
     Returns \c true if matrix \a m1 and matrix \a m2 are homomorphic; false otherwise.
 
     \sa isHomomorphicTo()
@@ -745,8 +671,6 @@ inline bool GenericMatrix<Elem>::isHomomorphic(const GenericMatrix<Elem> &m1, co
 }
 
 /*!
-    \fn template<typename Elem> void GenericMatrix<Elem>::swap(GenericMatrix<Elem> &m)
-
     Swaps matrix \a other with this matrix.
 */
 template<typename Elem>
@@ -758,8 +682,6 @@ void GenericMatrix<Elem>::swap(GenericMatrix<Elem> &other)
 }
 
 /*!
-    \fn template<typename Elem> GenericMatrix<Elem> &GenericMatrix<Elem>::operator+=(const GenericMatrix<Elem> &m)
-
     Adds the contents of \a m to this matrix.
 
     \exception std::invalid_argument if this matrix and matrix \a m are not homomorphic.
@@ -781,8 +703,6 @@ GenericMatrix<Elem> &GenericMatrix<Elem>::operator+=(const GenericMatrix<Elem> &
 }
 
 /*!
-    \fn template<typename Elem> GenericMatrix<Elem> &GenericMatrix<Elem>::operator-=(const GenericMatrix<Elem> &m)
-
     Subtracts the contents of \a m from this matrix.
 
     \exception std::invalid_argument if this matrix and matrix \a m are not homomorphic.
@@ -804,8 +724,6 @@ GenericMatrix<Elem> &GenericMatrix<Elem>::operator-=(const GenericMatrix<Elem> &
 }
 
 /*!
-    \fn template<typename Elem> GenericMatrix<Elem> &GenericMatrix<Elem>::operator*=(const GenericMatrix<Elem> &m)
-
     Multiplies this matrix and matrix \a m, in format: this = this * m.
 
     \exception std::invalid_argument if this matrix's columns is not equal to matrix \a m's rows.
@@ -829,8 +747,6 @@ GenericMatrix<Elem> &GenericMatrix<Elem>::operator*=(const GenericMatrix<Elem> &
 }
 
 /*!
-    \fn template<typename Elem> GenericMatrix<Elem> &GenericMatrix<Elem>::operator*=(const Elem &factor)
-
     Multiplies all elements of this matrix by \a factor.
 
     \sa operator/=()
@@ -847,8 +763,6 @@ GenericMatrix<Elem> &GenericMatrix<Elem>::operator*=(const Elem &factor)
 }
 
 /*!
-    \fn template<typename Elem> GenericMatrix<Elem> &GenericMatrix<Elem>::operator/=(const Elem &divisor)
-
     Divides all elements of this matrix by \a divisor.
 
     \sa operator*=()
@@ -865,8 +779,6 @@ GenericMatrix<Elem> &GenericMatrix<Elem>::operator/=(const Elem &divisor)
 }
 
 /*!
-    \fn template<typename Elem> bool GenericMatrix<Elem>::operator==(const GenericMatrix<Elem> &m) const
-
     Returns \c true if this matrix is identical to \a m; false otherwise.
 
     \sa operator!=()
@@ -883,8 +795,6 @@ bool GenericMatrix<Elem>::operator==(const GenericMatrix<Elem> &m) const
 }
 
 /*!
-    \fn template<typename Elem> bool GenericMatrix<Elem>::operator!=(const GenericMatrix<Elem> &m) const
-
     Returns \c true if this matrix is not identical to \a m; false otherwise.
 
     \sa operator==()
@@ -905,7 +815,6 @@ bool GenericMatrix<Elem>::operator!=(const GenericMatrix<Elem> &m) const
  *****************************************************************************/
 
 /*!
-    \fn GenericMatrix<__Elem> operator+(const GenericMatrix<__Elem> &m1, const GenericMatrix<__Elem> &m2)
     \relates GenericMatrix
 
     Returns the sum of \a m1 and \a m2.
@@ -930,7 +839,6 @@ GenericMatrix<__Elem> operator+(const GenericMatrix<__Elem> &m1, const GenericMa
 }
 
 /*!
-    \fn GenericMatrix<__Elem> operator-(const GenericMatrix<__Elem> &m1, const GenericMatrix<__Elem> &m2)
     \relates GenericMatrix
 
     Returns the difference of \a m1 and \a m2.
@@ -954,7 +862,6 @@ GenericMatrix<__Elem> operator-(const GenericMatrix<__Elem> &m1, const GenericMa
 }
 
 /*!
-    \fn GenericMatrix<__Elem> operator*(const GenericMatrix<__Elem> &m1, const GenericMatrix<__Elem> &m2)
     \relates GenericMatrix
 
     Returns the product of the \c M1xNN matrix \a m1 and the \c NNxM2 matrix \a m2
@@ -982,7 +889,6 @@ GenericMatrix<__Elem> operator*(const GenericMatrix<__Elem> &m1, const GenericMa
 }
 
 /*!
-    \fn template<typename __Elem> GenericMatrix<__Elem> operator*(const GenericMatrix<__Elem> &matrix, const __Elem &factor)
     \relates GenericMatrix
 
     Returns the result of multiplying all elements of \a matrix by \a factor.
@@ -1001,7 +907,6 @@ GenericMatrix<__Elem> operator*(const GenericMatrix<__Elem> &matrix, const __Ele
 }
 
 /*!
-    \fn GenericMatrix<__Elem> operator*(const __Elem &factor, const GenericMatrix<__Elem> &matrix)
     \relates GenericMatrix
 
     Returns the result of multiplying all elements of \a matrix by \a factor.
@@ -1020,7 +925,6 @@ GenericMatrix<__Elem> operator*(const __Elem &factor, const GenericMatrix<__Elem
 }
 
 /*!
-    \fn GenericMatrix<__Elem> operator/(const GenericMatrix<__Elem> &matrix, const __Elem &divisor)
     \relates GenericMatrix
 
     Returns the result of dividing all elements of \a matrix by \a divisor.
@@ -1039,7 +943,6 @@ GenericMatrix<__Elem> operator/(const GenericMatrix<__Elem> &matrix, const __Ele
 }
 
 /*!
-    \fn GenericMatrix<__Elem> operator-(const GenericMatrix<__Elem> &matrix)
     \relates GenericMatrix
 
     Returns the negation of \a matrix.
@@ -1056,7 +959,6 @@ GenericMatrix<__Elem> operator-(const GenericMatrix<__Elem> &matrix)
 }
 
 /*!
-    \fn std::ostream &operator<<(std::ostream &os, const GenericMatrix<__Elem> &matrix)
     \relates GenericMatrix
 
     Writes the given \a matrix to the given \a stream and returns a
