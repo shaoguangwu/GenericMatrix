@@ -4,6 +4,8 @@ C++ cross platform generic matrix template class, C++11 Required Support.
 
 C++跨平台通用模板矩阵类，需编译器支持C++11.
 
+More interface information see "doc/html/files.html".
+
 ## Quick Example
 
 linux or windows:
