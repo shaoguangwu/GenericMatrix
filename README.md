@@ -1,10 +1,12 @@
 # GenericMatrix
 
-C++ generic matrix template class, C++11 Required Support.
+C++ cross platform generic matrix template class, C++11 Required Support.
 
-C++通用矩阵类设计，需编译器支持C++11.
+C++跨平台通用模板矩阵类，需编译器支持C++11.
 
 ## Quick Example
+
+linux or windows:
 
 ```cpp
     GenericMatrix<> matrix(10, 5);
@@ -27,3 +29,7 @@ GenericMatrix<10, 5, f>(
          00         00         00         00         00
 )
 ```
+
+## License
+
+[Apache License 2.0](LICENSE)
