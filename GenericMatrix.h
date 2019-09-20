@@ -13,21 +13,21 @@
 #include <utility>
 
 /*!
-        \enum Initialization
-	\brief Indicates uninitialized.
+    \enum Initialization
+    \brief Indicates uninitialized.
 */
 enum class Initialization {
-	Uninitialized				///< Indicates uninitialized.
+    Uninitialized				///< Indicates uninitialized.
 };
 static constexpr Initialization Uninitialized = Initialization::Uninitialized;
 
 /*!
-	\class GenericMatrix
-	\brief The GenericMatrix class defines a generic template matrix class.
+    \class GenericMatrix
+    \brief The GenericMatrix class defines a generic template matrix class.
 
-	The GenericMatrix template has one parameter:
+    The GenericMatrix template has one parameter:
 
-	\li \b Elem Element type that is visible to users of the class.
+    \li \b Elem Element type that is visible to users of the class.
 */
 template<typename Elem = float>
 class GenericMatrix
