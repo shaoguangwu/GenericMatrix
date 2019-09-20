@@ -1,7 +1,7 @@
 /*!
  * \file	GenericMatrix.h
  * \brief	The header file of the GenericMatrix class.
- * \date	2019-09-19
+ * \date	2019-09-20
  * \author	shaoguang
  */
 
@@ -116,9 +116,6 @@ private:
     Elem **m_data;
 };
 
-/*****************************************************************************
-    definitions
- *****************************************************************************/
 
 /*!
     \typedef GenericMatrix::size_type
@@ -416,7 +413,7 @@ Elem *GenericMatrix<Elem>::rowData(size_type row)
 }
 
 /*!
-    \fn template<typename Elem> Elem *GenericMatrix<Elem>::rowData(size_type row)
+    \fn template<typename Elem> const Elem *GenericMatrix<Elem>::rowData(size_type row) const
 
     Returns a constant pointer to the \a row data of this matrix.
 
@@ -707,7 +704,7 @@ GenericMatrix<Elem> GenericMatrix<Elem>::hadamardProduct(const GenericMatrix<Ele
 
     Returns a new element type matrix.
 
-    \note The ElemDst must can do static_cast<ElemDst>(Elem).
+    \note The \b ElemDst must can do \c static_cast<ElemDst>(Elem).
 */
 template<typename Elem>
 template<typename ElemDst>
@@ -984,7 +981,7 @@ GenericMatrix<__Elem> operator*(const GenericMatrix<__Elem> &m1, const GenericMa
 }
 
 /*!
-    \fn GenericMatrix<Elem> operator*(const GenericMatrix<Elem> &matrix, const Elem &factor)
+    \fn template<typename __Elem> GenericMatrix<__Elem> operator*(const GenericMatrix<__Elem> &matrix, const __Elem &factor)
     \relates GenericMatrix
 
     Returns the result of multiplying all elements of \a matrix by \a factor.
