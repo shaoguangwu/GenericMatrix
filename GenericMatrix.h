@@ -1,7 +1,7 @@
 /*!
  * \file	GenericMatrix.h
  * \brief	The header file of the GenericMatrix class.
- * \date	2019-09-20
+ * \date	2019-09-19
  * \author	shaoguang
  */
 
@@ -57,7 +57,6 @@ public:
     const Elem *rowData(size_type row) const;
     const Elem *constRowData(size_type row) const;
     Elem *at(size_type row);
-    const Elem *at(size_type row) const;
     const Elem *at(size_type row) const;
 
     Elem &operator()(size_type row, size_type col);
@@ -236,7 +235,7 @@ GenericMatrix<Elem>::GenericMatrix(const GenericMatrix &other)
     alloc();
     for (size_type i = 0; i < m_rows; ++i) {
         for (size_type j = 0; j < m_cols; ++j) {
-            m_data[i][j] = other._p[i][j];
+            m_data[i][j] = other.m_data[i][j];
         }
     }
 }
@@ -248,9 +247,9 @@ GenericMatrix<Elem>::GenericMatrix(const GenericMatrix &other)
 */
 template<typename Elem>
 GenericMatrix<Elem>::GenericMatrix(GenericMatrix &&other)
-    : m_rows(other._rows), m_cols(other._cols), m_data(other._p)
+    : m_rows(other._rows), m_cols(other._cols), m_data(other.m_data)
 {
-    other._p = nullptr;
+    other.m_data = nullptr;
     other._rows = 0;
     other._cols = 0;
 }
@@ -277,7 +276,7 @@ GenericMatrix<Elem> &GenericMatrix<Elem>::operator=(const GenericMatrix &other)
 
     for (size_type i = 0; i < m_rows; ++i) {
         for (size_type j = 0; j < m_cols; ++j) {
-            m_data[i][j] = other._p[i][j];
+            m_data[i][j] = other.m_data[i][j];
         }
     }
     return *this;
@@ -300,8 +299,8 @@ GenericMatrix<Elem> &GenericMatrix<Elem>::operator=(GenericMatrix &&other)
     m_cols = other._cols;
     other._rows = 0; 
     other._cols = 0;
-    m_data = other._p; 
-    other._p = nullptr;
+    m_data = other.m_data; 
+    other.m_data = nullptr;
 
     return *this;
 }
@@ -457,23 +456,6 @@ const Elem *GenericMatrix<Elem>::constRowData(size_type row) const
 */
 template<typename Elem>
 Elem *GenericMatrix<Elem>::at(size_type row)
-{
-    if (row < m_rows)
-        return m_data[row];
-    throw std::out_of_range("out of range.");
-}
-
-/*!
-    \fn template<typename Elem> const Elem *GenericMatrix<Elem>::at(size_type row) const
-
-    Returns a constant pointer to the \a row data of this matrix, with bounds checking.
-
-    \exception std::out_of_range if position \a row is not within the range of the matrix.
-
-    \sa rowData(), constRowDataAt()
-*/
-template<typename Elem>
-const Elem *GenericMatrix<Elem>::at(size_type row) const
 {
     if (row < m_rows)
         return m_data[row];
@@ -658,7 +640,7 @@ GenericMatrix<Elem> GenericMatrix<Elem>::transposed() const
     GenericMatrix<Elem> result(m_cols, m_rows, Uninitialized);
     for (size_type i = 0; i < m_cols; ++i)
         for (size_type j = 0; j < m_rows; ++j)
-            result._p[i][j] = m_data[j][i];
+            result.m_data[i][j] = m_data[j][i];
     return result;
 }
 
@@ -714,7 +696,7 @@ GenericMatrix<Elem> GenericMatrix<Elem>::hadamardProduct(const GenericMatrix<Ele
     GenericMatrix<Elem> result(m1._rows, m1._cols, Uninitialized);
     for (size_type i = 0; i < m1._rows; ++i) {
         for (size_type j = 0; i < m2._cols; ++j) {
-            result._p[i][j] = m1._p[i][j] * m2._p[i][j];
+            result.m_data[i][j] = m1.m_data[i][j] * m2.m_data[i][j];
         }
     }
     return result;
@@ -772,7 +754,7 @@ inline bool GenericMatrix<Elem>::isHomomorphic(const GenericMatrix<Elem> &m1, co
 template<typename Elem>
 void GenericMatrix<Elem>::swap(GenericMatrix<Elem> &other)
 {
-    std::swap(m_data, other._p);
+    std::swap(m_data, other.m_data);
     std::swap(m_rows, other._rows);
     std::swap(m_cols, other._cols);
 }
@@ -794,7 +776,7 @@ GenericMatrix<Elem> &GenericMatrix<Elem>::operator+=(const GenericMatrix<Elem> &
 
     for (size_type i = 0; i < m_rows; ++i) {
         for (size_type j = 0; j < m_cols; ++j) {
-            m_data[i][j] += m._p[i][j];
+            m_data[i][j] += m.m_data[i][j];
         }
     }
     return *this;
@@ -817,7 +799,7 @@ GenericMatrix<Elem> &GenericMatrix<Elem>::operator-=(const GenericMatrix<Elem> &
 
     for (size_type i = 0; i < m_rows; ++i) {
         for (size_type j = 0; j < m_cols; ++j) {
-            m_data[i][j] -= m._p[i][j];
+            m_data[i][j] -= m.m_data[i][j];
         }
     }
     return *this;
@@ -841,7 +823,7 @@ GenericMatrix<Elem> &GenericMatrix<Elem>::operator*=(const GenericMatrix<Elem> &
     for (size_type i = 0; i < result._rows; ++i) {
         for (size_type j = 0; j < result._cols; ++j) {
             for (size_type k = 0; k < m_cols; ++k) {
-                result._p[i][j] += (m_data[i][k] * m._p[k][j]);
+                result.m_data[i][j] += (m_data[i][k] * m.m_data[k][j]);
             }
         }
     }
@@ -896,7 +878,7 @@ bool GenericMatrix<Elem>::operator==(const GenericMatrix<Elem> &m) const
 {
     for (size_type i = 0; i < m_rows; ++i)
         for (size_type j = 0; j < m_cols; ++j) {
-            if (m_data[i][j] != m._p[i][j])
+            if (m_data[i][j] != m.m_data[i][j])
                 return false;
         }
     return true;
@@ -914,7 +896,7 @@ bool GenericMatrix<Elem>::operator!=(const GenericMatrix<Elem> &m) const
 {
     for (size_type i = 0; i < m_rows; ++i)
         for (size_type j = 0; j < m_cols; ++j) {
-            if (m_data[i][j] != m._p[i][j])
+            if (m_data[i][j] != m.m_data[i][j])
                 return true;
         }
     return false;
@@ -943,7 +925,7 @@ GenericMatrix<__Elem> operator+(const GenericMatrix<__Elem> &m1, const GenericMa
     GenericMatrix<__Elem> result(m1.m_rows, m1.m_cols, Uninitialized);
     for (size_type i = 0; i < result._rows; ++i) {
         for (size_type j = 0; j < result._cols; ++j) {
-            result._p[i][j] = m1.m_data[i][j] + m2.m_data[i][j];
+            result.m_data[i][j] = m1.m_data[i][j] + m2.m_data[i][j];
         }
     }
     return result;
@@ -967,7 +949,7 @@ GenericMatrix<__Elem> operator-(const GenericMatrix<__Elem> &m1, const GenericMa
     GenericMatrix<__Elem> result(m1.m_rows, m1.m_cols, Uninitialized);
     for (size_type i = 0; i < result._rows; ++i) {
         for (size_type j = 0; j < result._cols; ++j) {
-            result._p[i][j] = m1.m_data[i][j] - m2.m_data[i][j];
+            result.m_data[i][j] = m1.m_data[i][j] - m2.m_data[i][j];
         }
     }
     return result;
@@ -994,7 +976,7 @@ GenericMatrix<__Elem> operator*(const GenericMatrix<__Elem> &m1, const GenericMa
     for (size_type i = 0; i < result._rows; ++i) {
         for (size_type j = 0; j < result._cols; ++j) {
             for (size_type k = 0; k < m1.m_cols; ++k) {
-                result._p[i][j] += m1.m_data[i][k] * m2.m_data[k][j];
+                result.m_data[i][j] += m1.m_data[i][k] * m2.m_data[k][j];
             }
         }
     }
@@ -1014,7 +996,7 @@ GenericMatrix<__Elem> operator*(const GenericMatrix<__Elem> &matrix, const __Ele
     GenericMatrix<__Elem> result(matrix.m_rows, matrix.m_cols, Uninitialized);
     for (size_type i = 0; i < result._rows; ++i) {
         for (size_type j = 0; j < result._cols; ++j) {
-            result._p[i][j] = matrix.m_data[i][j] * factor;
+            result.m_data[i][j] = matrix.m_data[i][j] * factor;
         }
     }
     return result;
@@ -1033,7 +1015,7 @@ GenericMatrix<__Elem> operator*(const __Elem &factor, const GenericMatrix<__Elem
     GenericMatrix<__Elem> result(matrix.m_rows, matrix.m_cols, Uninitialized);
     for (size_type i = 0; i < result._rows; ++i) {
         for (size_type j = 0; j < result._cols; ++j) {
-            result._p[i][j] = matrix.m_data[i][j] * factor;
+            result.m_data[i][j] = matrix.m_data[i][j] * factor;
         }
     }
     return result;
@@ -1052,7 +1034,7 @@ GenericMatrix<__Elem> operator/(const GenericMatrix<__Elem> &matrix, const __Ele
     GenericMatrix<__Elem> result(matrix.m_rows, matrix.m_cols, Uninitialized);
     for (size_type i = 0; i < result._rows; ++i) {
         for (size_type j = 0; j < result._cols; ++j) {
-            result._p[i][j] = matrix.m_data[i][j] / divisor;
+            result.m_data[i][j] = matrix.m_data[i][j] / divisor;
         }
     }
     return result;
@@ -1071,7 +1053,7 @@ GenericMatrix<__Elem> operator-(const GenericMatrix<__Elem> &matrix)
     GenericMatrix<__Elem> result(matrix.m_rows, matrix.m_cols, Uninitialized);
     for (size_type i = 0; i < matrix.m_rows; ++i)
         for (size_type j = 0; j < matrix.m_cols; ++j)
-            result._p[i][j] = -matrix.m_data[i][j];
+            result.m_data[i][j] = -matrix.m_data[i][j];
     return result;
 }
 
