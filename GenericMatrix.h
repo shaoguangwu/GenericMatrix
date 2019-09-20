@@ -3,6 +3,7 @@
  * \brief	The header file of the GenericMatrix class.
  * \date	2019-09-20
  * \author	shaoguang
+ * \license	MIT License
  */
 
 #ifndef __GENERICMATRIX_H__
