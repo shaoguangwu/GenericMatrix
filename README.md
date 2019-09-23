@@ -4,9 +4,9 @@ C++ cross platform generic matrix template class, C++11 Required Support.
 
 Two classes:
 |Class||Brief|
-|:---|:---|
-|GenericMatrix|A generic template matrix class, the matrix elements are managed by a one-dimension pointer.|
-|GenericMatrix2|A generic template matrix class, the matrix elements are managed by a two-dimension pointer.|
+|---|---|
+|GenericMatrix|A generic template matrix class, the matrix elements are managed by a one-dimension pointer.
+|GenericMatrix2|A generic template matrix class, the matrix elements are managed by a two-dimension pointer.
 
 More interface information see "doc/html/index.html".
 
