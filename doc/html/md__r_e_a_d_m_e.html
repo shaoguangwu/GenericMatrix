@@ -5,7 +5,7 @@
 <meta http-equiv="X-UA-Compatible" content="IE=9"/>
 <meta name="generator" content="Doxygen 1.8.15"/>
 <meta name="viewport" content="width=device-width, initial-scale=1"/>
-<title>GenericMatrix: GenericMatrix</title>
+<title>GenericMatrix: GenericMatrix &amp; GenericMatrix2</title>
 <link href="tabs.css" rel="stylesheet" type="text/css"/>
 <script type="text/javascript" src="jquery.js"></script>
 <script type="text/javascript" src="dynsections.js"></script>
@@ -63,10 +63,19 @@ $(function() {
 </div><!-- top -->
 <div class="PageDoc"><div class="header">
   <div class="headertitle">
-<div class="title"><a class="el" href="class_generic_matrix.html" title="The GenericMatrix class defines a generic template matrix class.">GenericMatrix</a> </div>  </div>
+<div class="title"><a class="el" href="class_generic_matrix.html" title="The GenericMatrix class defines a generic template matrix class, the matrix elements are managed by a...">GenericMatrix</a> &amp; <a class="el" href="class_generic_matrix2.html" title="The GenericMatrix2 class defines a generic template matrix class, the matrix elements are managed by ...">GenericMatrix2</a> </div>  </div>
 </div><!--header-->
 <div class="contents">
-<div class="textblock"><p>C++ generic matrix class, C++11 Required Support. C++通用矩阵类设计，需编译器支持C++11. </p>
+<div class="textblock"><p>C++ cross platform generic matrix template class, C++11 Required Support.</p>
+<p>Two classes: |Class||Brief| |:&mdash;|:&mdash;| |GenericMatrix|A generic template matrix class, the matrix elements are managed by a one-dimension pointer.| |GenericMatrix2|A generic template matrix class, the matrix elements are managed by a two-dimension pointer.|</p>
+<p>More interface information see "doc/html/index.html".</p>
+<p>C++跨平台通用模板矩阵类，需编译器支持C++11.</p>
+<p>接口详细文档见“doc/html/index.html”。</p>
+<h2>Quick Example</h2>
+<p>linux or windows:</p>
+<div class="fragment"><div class="line"><a class="code" href="class_generic_matrix.html">GenericMatrix&lt;&gt;</a> matrix(2, 4);</div><div class="line">matrix.fill(1);</div><div class="line"></div><div class="line"><a class="code" href="class_generic_matrix2.html">GenericMatrix2&lt;&gt;</a> matrix2(4, 4, 0);</div><div class="line">matrix2.setToIdentity();</div><div class="line"></div><div class="line">std::cout &lt;&lt; matrix &lt;&lt; std::endl;</div><div class="line">std::cout &lt;&lt; matrix2 &lt;&lt; std::endl;</div></div><!-- fragment --><p>(Compiled by gcc7.4.0) The Result is:</p>
+<div class="fragment"><div class="line"><a class="code" href="class_generic_matrix.html">GenericMatrix&lt;2, 4, f&gt;</a>(</div><div class="line">         01         01         01         01</div><div class="line">         01         01         01         01</div><div class="line">)</div><div class="line"><a class="code" href="class_generic_matrix2.html">GenericMatrix2</a>&lt;4, 4, f&gt;(</div><div class="line">         01         00         00         00</div><div class="line">         00         01         00         00</div><div class="line">         00         00         01         00</div><div class="line">         00         00         00         01</div><div class="line">)</div></div><!-- fragment --><h2>License</h2>
+<p>[Apache License 2.0](LICENSE) </p>
 </div></div><!-- PageDoc -->
 </div><!-- contents -->
 <!-- start footer part -->

@@ -1,4 +1,4 @@
 var searchData=
 [
-  ['uninitialized',['Uninitialized',['../_generic_matrix_8h.html#a950dbc1db080680dd5388c2a4f8d4142af704f57ea420275ad51bf55b7dec2c96',1,'GenericMatrix.h']]]
+  ['value_5ftype',['value_type',['../class_generic_matrix.html#ad3bd8479ba50727d19bb5ab890d0fcf0',1,'GenericMatrix::value_type()'],['../class_generic_matrix2.html#a9356260ddb01a109c3773ffd848cf5fe',1,'GenericMatrix2::value_type()']]]
 ];
