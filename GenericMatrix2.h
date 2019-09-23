@@ -44,10 +44,10 @@ public:
     GenericMatrix2(size_type row, size_type col);
     GenericMatrix2(size_type row, size_type col, const Elem &initialValue);
     GenericMatrix2(const GenericMatrix2 &other);
-    GenericMatrix2(GenericMatrix2 &&other);
+    GenericMatrix2(GenericMatrix2 &&other) noexcept;
     ~GenericMatrix2();
     GenericMatrix2 &operator=(const GenericMatrix2 &other);
-    GenericMatrix2 &operator=(GenericMatrix2 &&other);
+    GenericMatrix2 &operator=(GenericMatrix2 &&other) noexcept;
 
     size_type rows() const noexcept;
     size_type columns() const noexcept;
@@ -231,7 +231,7 @@ GenericMatrix2<Elem>::GenericMatrix2(const GenericMatrix2 &other)
     Move-constructs a GenericMatrix2 instance, making it point at the same object that \a other was pointing to.
 */
 template<typename Elem>
-GenericMatrix2<Elem>::GenericMatrix2(GenericMatrix2 &&other)
+GenericMatrix2<Elem>::GenericMatrix2(GenericMatrix2 &&other) noexcept
     : m_rows(other.m_rows), m_cols(other.m_cols), m_data(other.m_data)
 {
     other.m_data = nullptr;
@@ -268,7 +268,7 @@ GenericMatrix2<Elem> &GenericMatrix2<Elem>::operator=(const GenericMatrix2 &othe
     Move-assigns \a other to this GenericMatrix2 instance.
 */
 template<typename Elem>
-GenericMatrix2<Elem> &GenericMatrix2<Elem>::operator=(GenericMatrix2 &&other)
+GenericMatrix2<Elem> &GenericMatrix2<Elem>::operator=(GenericMatrix2 &&other) noexcept
 {
     if (this == &other) {
         return *this;
@@ -682,9 +682,7 @@ inline bool GenericMatrix2<Elem>::isHomomorphic(const GenericMatrix2<Elem> &m1, 
 template<typename Elem>
 void GenericMatrix2<Elem>::swap(GenericMatrix2<Elem> &other)
 {
-    std::swap(m_data, other.m_data);
-    std::swap(m_rows, other.m_rows);
-    std::swap(m_cols, other.m_cols);
+    std::swap(*this, other);
 }
 
 /*!

@@ -45,10 +45,10 @@ public:
     GenericMatrix(size_type row, size_type col);
     GenericMatrix(size_type row, size_type col, const Elem &initialValue);
     GenericMatrix(const GenericMatrix &other);
-    GenericMatrix(GenericMatrix &&other);
+    GenericMatrix(GenericMatrix &&other) noexcept;
     ~GenericMatrix();
     GenericMatrix &operator=(const GenericMatrix &other);
-    GenericMatrix &operator=(GenericMatrix &&other);
+    GenericMatrix &operator=(GenericMatrix &&other) noexcept;
 
     size_type rows() const noexcept;
     size_type columns() const noexcept;
@@ -226,7 +226,7 @@ GenericMatrix<Elem>::GenericMatrix(const GenericMatrix &other)
     Move-constructs a GenericMatrix instance, making it point at the same object that \a other was pointing to.
 */
 template<typename Elem>
-GenericMatrix<Elem>::GenericMatrix(GenericMatrix &&other)
+GenericMatrix<Elem>::GenericMatrix(GenericMatrix &&other) noexcept
     : m_rows(other.m_rows), m_cols(other.m_cols), m_data(other.m_data)
 {
     other.m_data = nullptr;
@@ -254,7 +254,7 @@ GenericMatrix<Elem> &GenericMatrix<Elem>::operator=(const GenericMatrix &other)
     Move-assigns \a other to this GenericMatrix instance.
 */
 template<typename Elem>
-GenericMatrix<Elem> &GenericMatrix<Elem>::operator=(GenericMatrix &&other)
+GenericMatrix<Elem> &GenericMatrix<Elem>::operator=(GenericMatrix &&other) noexcept
 {
     if (this == &other) {
         return *this;
