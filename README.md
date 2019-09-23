@@ -6,8 +6,8 @@ Two classes:
 
 |Class|Brief|
 |---|---
-|GenericMatrix<typename Elem>|A generic template matrix class, the matrix elements are managed by a one-dimension pointer.
-|GenericMatrix2<typename Elem>|A generic template matrix class, the matrix elements are managed by a two-dimension pointer.
+|GenericMatrix|A generic template matrix class, the matrix elements are managed by a one-dimension pointer.
+|GenericMatrix2|A generic template matrix class, the matrix elements are managed by a two-dimension pointer.
 
 More interface information see "doc/html/index.html".
 
@@ -30,7 +30,7 @@ linux or windows:
     std::cout << matrix2 << std::endl;
 ```
 
-(Compiled by gcc7.4.0) The Result is:
+(Compiled by gcc 7.4.0) The Result is:
 
 ```cpp
 GenericMatrix<2, 4, f>(
