@@ -133,6 +133,8 @@ Public Member Functions</h2></td></tr>
 <tr class="separator:a4e678b626ac723948fe0491fdf712205"><td class="memSeparator" colspan="2">&#160;</td></tr>
 <tr class="memitem:a29f2d47802be7d4c6fdc265148a93f80"><td class="memItemLeft" align="right" valign="top">void&#160;</td><td class="memItemRight" valign="bottom"><a class="el" href="class_generic_matrix.html#a29f2d47802be7d4c6fdc265148a93f80">resize</a> (<a class="el" href="class_generic_matrix.html#a625d2eb79996d4d7d8ddc3beef4beab7">size_type</a> row, <a class="el" href="class_generic_matrix.html#a625d2eb79996d4d7d8ddc3beef4beab7">size_type</a> col, const Elem &amp;initialValue)</td></tr>
 <tr class="separator:a29f2d47802be7d4c6fdc265148a93f80"><td class="memSeparator" colspan="2">&#160;</td></tr>
+<tr class="memitem:abfa203a409f900259fb24f194160e71a"><td class="memItemLeft" align="right" valign="top">void&#160;</td><td class="memItemRight" valign="bottom"><a class="el" href="class_generic_matrix.html#abfa203a409f900259fb24f194160e71a">reset</a> (<a class="el" href="class_generic_matrix.html#a625d2eb79996d4d7d8ddc3beef4beab7">size_type</a> row, <a class="el" href="class_generic_matrix.html#a625d2eb79996d4d7d8ddc3beef4beab7">size_type</a> col, Elem *<a class="el" href="class_generic_matrix.html#a1d9ac528797fdd0af2464c40e1140897">data</a>)</td></tr>
+<tr class="separator:abfa203a409f900259fb24f194160e71a"><td class="memSeparator" colspan="2">&#160;</td></tr>
 <tr class="memitem:af33a7f9dd5c86001b45c471dbd61856a"><td class="memItemLeft" align="right" valign="top">void&#160;</td><td class="memItemRight" valign="bottom"><a class="el" href="class_generic_matrix.html#af33a7f9dd5c86001b45c471dbd61856a">setToIdentity</a> ()</td></tr>
 <tr class="separator:af33a7f9dd5c86001b45c471dbd61856a"><td class="memSeparator" colspan="2">&#160;</td></tr>
 <tr class="memitem:a1eec667eeff09979b7698a8ffd3dd303"><td class="memItemLeft" align="right" valign="top">void&#160;</td><td class="memItemRight" valign="bottom"><a class="el" href="class_generic_matrix.html#a1eec667eeff09979b7698a8ffd3dd303">fill</a> (const Elem &amp;value)</td></tr>
@@ -264,7 +266,7 @@ template&lt;typename Elem &gt; </div>
 <p>Constructs a invalid matrix.</p>
 <dl class="section see"><dt>See also</dt><dd><a class="el" href="class_generic_matrix.html#ad3c2f2567d7f7c9680386dc31804c5b8">isValid()</a> </dd></dl>
 
-<p class="definition">Definition at line <a class="el" href="_generic_matrix_8h_source.html#l00138">138</a> of file <a class="el" href="_generic_matrix_8h_source.html">GenericMatrix.h</a>.</p>
+<p class="definition">Definition at line <a class="el" href="_generic_matrix_8h_source.html#l00139">139</a> of file <a class="el" href="_generic_matrix_8h_source.html">GenericMatrix.h</a>.</p>
 
 </div>
 </div>
@@ -297,7 +299,7 @@ template&lt;typename Elem &gt; </div>
 </div><div class="memdoc">
 <p>Constructs a <em>row</em> x <em>col</em> matrix without initializing the contents. </p>
 
-<p class="definition">Definition at line <a class="el" href="_generic_matrix_8h_source.html#l00147">147</a> of file <a class="el" href="_generic_matrix_8h_source.html">GenericMatrix.h</a>.</p>
+<p class="definition">Definition at line <a class="el" href="_generic_matrix_8h_source.html#l00148">148</a> of file <a class="el" href="_generic_matrix_8h_source.html">GenericMatrix.h</a>.</p>
 
 </div>
 </div>
@@ -337,7 +339,7 @@ template&lt;typename Elem &gt; </div>
 <p>Constructs a <em>row</em> x <em>col</em> matrix and initialize all values with <em>initialValue</em>.</p>
 <dl class="section see"><dt>See also</dt><dd><a class="el" href="class_generic_matrix.html#a1eec667eeff09979b7698a8ffd3dd303">fill()</a> </dd></dl>
 
-<p class="definition">Definition at line <a class="el" href="_generic_matrix_8h_source.html#l00159">159</a> of file <a class="el" href="_generic_matrix_8h_source.html">GenericMatrix.h</a>.</p>
+<p class="definition">Definition at line <a class="el" href="_generic_matrix_8h_source.html#l00160">160</a> of file <a class="el" href="_generic_matrix_8h_source.html">GenericMatrix.h</a>.</p>
 
 </div>
 </div>
@@ -360,7 +362,7 @@ template&lt;typename Elem &gt; </div>
 </div><div class="memdoc">
 <p>Constructs a copy of <em>other</em>. </p>
 
-<p class="definition">Definition at line <a class="el" href="_generic_matrix_8h_source.html#l00217">217</a> of file <a class="el" href="_generic_matrix_8h_source.html">GenericMatrix.h</a>.</p>
+<p class="definition">Definition at line <a class="el" href="_generic_matrix_8h_source.html#l00218">218</a> of file <a class="el" href="_generic_matrix_8h_source.html">GenericMatrix.h</a>.</p>
 
 </div>
 </div>
@@ -383,7 +385,7 @@ template&lt;typename Elem &gt; </div>
 </div><div class="memdoc">
 <p>Move-constructs a <a class="el" href="class_generic_matrix.html" title="The GenericMatrix class defines a generic template matrix class, the matrix elements are managed by a...">GenericMatrix</a> instance, making it point at the same object that <em>other</em> was pointing to. </p>
 
-<p class="definition">Definition at line <a class="el" href="_generic_matrix_8h_source.html#l00228">228</a> of file <a class="el" href="_generic_matrix_8h_source.html">GenericMatrix.h</a>.</p>
+<p class="definition">Definition at line <a class="el" href="_generic_matrix_8h_source.html#l00229">229</a> of file <a class="el" href="_generic_matrix_8h_source.html">GenericMatrix.h</a>.</p>
 
 </div>
 </div>
@@ -405,7 +407,7 @@ template&lt;typename Elem &gt; </div>
 </div><div class="memdoc">
 <p>Destroys the matrix. </p>
 
-<p class="definition">Definition at line <a class="el" href="_generic_matrix_8h_source.html#l00170">170</a> of file <a class="el" href="_generic_matrix_8h_source.html">GenericMatrix.h</a>.</p>
+<p class="definition">Definition at line <a class="el" href="_generic_matrix_8h_source.html#l00171">171</a> of file <a class="el" href="_generic_matrix_8h_source.html">GenericMatrix.h</a>.</p>
 
 </div>
 </div>
@@ -446,7 +448,7 @@ template&lt;typename Elem &gt; </div>
 </dl>
 <dl class="section see"><dt>See also</dt><dd><a class="el" href="class_generic_matrix.html#a823747dd4b9953df7024efc1d9d752c8">operator()()</a> </dd></dl>
 
-<p class="definition">Definition at line <a class="el" href="_generic_matrix_8h_source.html#l00391">391</a> of file <a class="el" href="_generic_matrix_8h_source.html">GenericMatrix.h</a>.</p>
+<p class="definition">Definition at line <a class="el" href="_generic_matrix_8h_source.html#l00392">392</a> of file <a class="el" href="_generic_matrix_8h_source.html">GenericMatrix.h</a>.</p>
 
 </div>
 </div>
@@ -486,7 +488,7 @@ template&lt;typename Elem &gt; </div>
 </dl>
 <dl class="section see"><dt>See also</dt><dd><a class="el" href="class_generic_matrix.html#a823747dd4b9953df7024efc1d9d752c8">operator()()</a> </dd></dl>
 
-<p class="definition">Definition at line <a class="el" href="_generic_matrix_8h_source.html#l00375">375</a> of file <a class="el" href="_generic_matrix_8h_source.html">GenericMatrix.h</a>.</p>
+<p class="definition">Definition at line <a class="el" href="_generic_matrix_8h_source.html#l00376">376</a> of file <a class="el" href="_generic_matrix_8h_source.html">GenericMatrix.h</a>.</p>
 
 </div>
 </div>
@@ -511,7 +513,7 @@ template&lt;typename ElemDst &gt; </div>
 <p>Returns a new element type matrix.</p>
 <dl class="section note"><dt>Note</dt><dd>The <b>ElemDst</b> must can do <code>static_cast&lt;ElemDst&gt;(Elem)</code>. </dd></dl>
 
-<p class="definition">Definition at line <a class="el" href="_generic_matrix_8h_source.html#l00549">549</a> of file <a class="el" href="_generic_matrix_8h_source.html">GenericMatrix.h</a>.</p>
+<p class="definition">Definition at line <a class="el" href="_generic_matrix_8h_source.html#l00560">560</a> of file <a class="el" href="_generic_matrix_8h_source.html">GenericMatrix.h</a>.</p>
 
 </div>
 </div>
@@ -542,7 +544,7 @@ template&lt;typename Elem &gt; </div>
 <p>Returns the number of matrix columns.</p>
 <dl class="section see"><dt>See also</dt><dd><a class="el" href="class_generic_matrix.html#a16c64a05f548b21c7d64755f22bdb841">rows()</a>, <a class="el" href="class_generic_matrix.html#af0fcee259354acaf45f9589d2f749e01">size()</a> </dd></dl>
 
-<p class="definition">Definition at line <a class="el" href="_generic_matrix_8h_source.html#l00290">290</a> of file <a class="el" href="_generic_matrix_8h_source.html">GenericMatrix.h</a>.</p>
+<p class="definition">Definition at line <a class="el" href="_generic_matrix_8h_source.html#l00291">291</a> of file <a class="el" href="_generic_matrix_8h_source.html">GenericMatrix.h</a>.</p>
 
 </div>
 </div>
@@ -565,7 +567,7 @@ template&lt;typename Elem &gt; </div>
 <p>Returns a constant pointer to the raw data of this matrix.</p>
 <dl class="section see"><dt>See also</dt><dd><a class="el" href="class_generic_matrix.html#a1d9ac528797fdd0af2464c40e1140897">data()</a> </dd></dl>
 
-<p class="definition">Definition at line <a class="el" href="_generic_matrix_8h_source.html#l00334">334</a> of file <a class="el" href="_generic_matrix_8h_source.html">GenericMatrix.h</a>.</p>
+<p class="definition">Definition at line <a class="el" href="_generic_matrix_8h_source.html#l00335">335</a> of file <a class="el" href="_generic_matrix_8h_source.html">GenericMatrix.h</a>.</p>
 
 </div>
 </div>
@@ -588,7 +590,7 @@ template&lt;typename Elem &gt; </div>
 <p>Returns a pointer to the raw data of this matrix.</p>
 <dl class="section see"><dt>See also</dt><dd><a class="el" href="class_generic_matrix.html#a727744d1c78bf5647edffe40a982076d">constData()</a> </dd></dl>
 
-<p class="definition">Definition at line <a class="el" href="_generic_matrix_8h_source.html#l00312">312</a> of file <a class="el" href="_generic_matrix_8h_source.html">GenericMatrix.h</a>.</p>
+<p class="definition">Definition at line <a class="el" href="_generic_matrix_8h_source.html#l00313">313</a> of file <a class="el" href="_generic_matrix_8h_source.html">GenericMatrix.h</a>.</p>
 
 </div>
 </div>
@@ -611,7 +613,7 @@ template&lt;typename Elem &gt; </div>
 <p>Returns a constant pointer to the raw data of this matrix.</p>
 <dl class="section see"><dt>See also</dt><dd><a class="el" href="class_generic_matrix.html#a727744d1c78bf5647edffe40a982076d">constData()</a> </dd></dl>
 
-<p class="definition">Definition at line <a class="el" href="_generic_matrix_8h_source.html#l00323">323</a> of file <a class="el" href="_generic_matrix_8h_source.html">GenericMatrix.h</a>.</p>
+<p class="definition">Definition at line <a class="el" href="_generic_matrix_8h_source.html#l00324">324</a> of file <a class="el" href="_generic_matrix_8h_source.html">GenericMatrix.h</a>.</p>
 
 </div>
 </div>
@@ -641,7 +643,7 @@ template&lt;typename Elem &gt; </div>
 </dl>
 <dl class="section see"><dt>See also</dt><dd><a class="el" href="class_generic_matrix.html#a3d248f73b24e03c26975aa93a3c21cad">hadamardProduct()</a> </dd></dl>
 
-<p class="definition">Definition at line <a class="el" href="_generic_matrix_8h_source.html#l00508">508</a> of file <a class="el" href="_generic_matrix_8h_source.html">GenericMatrix.h</a>.</p>
+<p class="definition">Definition at line <a class="el" href="_generic_matrix_8h_source.html#l00519">519</a> of file <a class="el" href="_generic_matrix_8h_source.html">GenericMatrix.h</a>.</p>
 
 </div>
 </div>
@@ -664,7 +666,7 @@ template&lt;typename Elem &gt; </div>
 </div><div class="memdoc">
 <p>Fills all elements of this matrix with <em>value</em>. </p>
 
-<p class="definition">Definition at line <a class="el" href="_generic_matrix_8h_source.html#l00496">496</a> of file <a class="el" href="_generic_matrix_8h_source.html">GenericMatrix.h</a>.</p>
+<p class="definition">Definition at line <a class="el" href="_generic_matrix_8h_source.html#l00507">507</a> of file <a class="el" href="_generic_matrix_8h_source.html">GenericMatrix.h</a>.</p>
 
 </div>
 </div>
@@ -712,7 +714,7 @@ template&lt;typename Elem &gt; </div>
 </dl>
 <dl class="section see"><dt>See also</dt><dd><a class="el" href="class_generic_matrix.html#afc83674642bae1c22fc13dd7ae26aa30">doHadamardProduct()</a> </dd></dl>
 
-<p class="definition">Definition at line <a class="el" href="_generic_matrix_8h_source.html#l00528">528</a> of file <a class="el" href="_generic_matrix_8h_source.html">GenericMatrix.h</a>.</p>
+<p class="definition">Definition at line <a class="el" href="_generic_matrix_8h_source.html#l00539">539</a> of file <a class="el" href="_generic_matrix_8h_source.html">GenericMatrix.h</a>.</p>
 
 </div>
 </div>
@@ -754,7 +756,7 @@ template&lt;typename Elem &gt; </div>
 <p>Returns <code>true</code> if matrix <em>m1</em> and matrix <em>m2</em> are homomorphic; false otherwise.</p>
 <dl class="section see"><dt>See also</dt><dd><a class="el" href="class_generic_matrix.html#ad4c41d57a0f1ee9563721ba90be30bc2">isHomomorphicTo()</a> </dd></dl>
 
-<p class="definition">Definition at line <a class="el" href="_generic_matrix_8h_source.html#l00577">577</a> of file <a class="el" href="_generic_matrix_8h_source.html">GenericMatrix.h</a>.</p>
+<p class="definition">Definition at line <a class="el" href="_generic_matrix_8h_source.html#l00588">588</a> of file <a class="el" href="_generic_matrix_8h_source.html">GenericMatrix.h</a>.</p>
 
 </div>
 </div>
@@ -786,7 +788,7 @@ template&lt;typename Elem &gt; </div>
 <p>Returns <code>true</code> if this matrix and matrix <em>m</em> are homomorphic; false otherwise.</p>
 <dl class="section see"><dt>See also</dt><dd><a class="el" href="class_generic_matrix.html#a342ef974b735d429f6eb83903216455d">isHomomorphic()</a> </dd></dl>
 
-<p class="definition">Definition at line <a class="el" href="_generic_matrix_8h_source.html#l00566">566</a> of file <a class="el" href="_generic_matrix_8h_source.html">GenericMatrix.h</a>.</p>
+<p class="definition">Definition at line <a class="el" href="_generic_matrix_8h_source.html#l00577">577</a> of file <a class="el" href="_generic_matrix_8h_source.html">GenericMatrix.h</a>.</p>
 
 </div>
 </div>
@@ -809,7 +811,7 @@ template&lt;typename Elem &gt; </div>
 <p>Returns <code>true</code> if this matrix is the identity; false otherwise.</p>
 <dl class="section see"><dt>See also</dt><dd><a class="el" href="class_generic_matrix.html#af33a7f9dd5c86001b45c471dbd61856a">setToIdentity()</a> </dd></dl>
 
-<p class="definition">Definition at line <a class="el" href="_generic_matrix_8h_source.html#l00413">413</a> of file <a class="el" href="_generic_matrix_8h_source.html">GenericMatrix.h</a>.</p>
+<p class="definition">Definition at line <a class="el" href="_generic_matrix_8h_source.html#l00414">414</a> of file <a class="el" href="_generic_matrix_8h_source.html">GenericMatrix.h</a>.</p>
 
 </div>
 </div>
@@ -839,7 +841,7 @@ template&lt;typename Elem &gt; </div>
 </div><div class="memdoc">
 <p>Returns <code>true</code> if this matrix internal data is not null pointer and matrix rows/cols greater than 0, otherwise returns <code>false</code>. </p>
 
-<p class="definition">Definition at line <a class="el" href="_generic_matrix_8h_source.html#l00402">402</a> of file <a class="el" href="_generic_matrix_8h_source.html">GenericMatrix.h</a>.</p>
+<p class="definition">Definition at line <a class="el" href="_generic_matrix_8h_source.html#l00403">403</a> of file <a class="el" href="_generic_matrix_8h_source.html">GenericMatrix.h</a>.</p>
 
 </div>
 </div>
@@ -868,7 +870,7 @@ template&lt;typename Elem &gt; </div>
   </dd>
 </dl>
 
-<p class="definition">Definition at line <a class="el" href="_generic_matrix_8h_source.html#l00635">635</a> of file <a class="el" href="_generic_matrix_8h_source.html">GenericMatrix.h</a>.</p>
+<p class="definition">Definition at line <a class="el" href="_generic_matrix_8h_source.html#l00646">646</a> of file <a class="el" href="_generic_matrix_8h_source.html">GenericMatrix.h</a>.</p>
 
 </div>
 </div>
@@ -892,7 +894,7 @@ template&lt;typename Elem &gt; </div>
 <p>Multiplies all elements of this matrix by <em>factor</em>.</p>
 <dl class="section see"><dt>See also</dt><dd><a class="el" href="class_generic_matrix.html#aa8a7a03837b6dfb71e0659f6620a6d9c">operator/=()</a> </dd></dl>
 
-<p class="definition">Definition at line <a class="el" href="_generic_matrix_8h_source.html#l00657">657</a> of file <a class="el" href="_generic_matrix_8h_source.html">GenericMatrix.h</a>.</p>
+<p class="definition">Definition at line <a class="el" href="_generic_matrix_8h_source.html#l00668">668</a> of file <a class="el" href="_generic_matrix_8h_source.html">GenericMatrix.h</a>.</p>
 
 </div>
 </div>
@@ -916,7 +918,7 @@ template&lt;typename Elem &gt; </div>
 <p>Returns <code>true</code> if this matrix is not identical to <em>m</em>; false otherwise.</p>
 <dl class="section see"><dt>See also</dt><dd><a class="el" href="class_generic_matrix.html#a1f9c2c4d4a70b4417ba033e5ea52a547">operator==()</a> </dd></dl>
 
-<p class="definition">Definition at line <a class="el" href="_generic_matrix_8h_source.html#l00700">700</a> of file <a class="el" href="_generic_matrix_8h_source.html">GenericMatrix.h</a>.</p>
+<p class="definition">Definition at line <a class="el" href="_generic_matrix_8h_source.html#l00711">711</a> of file <a class="el" href="_generic_matrix_8h_source.html">GenericMatrix.h</a>.</p>
 
 </div>
 </div>
@@ -951,7 +953,7 @@ template&lt;typename Elem &gt; </div>
 <dl class="section note"><dt>Note</dt><dd>No bounds checking is performed.</dd></dl>
 <dl class="section see"><dt>See also</dt><dd><a class="el" href="class_generic_matrix.html#a577dee68958700259f8fdfc10dea588f">at()</a> </dd></dl>
 
-<p class="definition">Definition at line <a class="el" href="_generic_matrix_8h_source.html#l00361">361</a> of file <a class="el" href="_generic_matrix_8h_source.html">GenericMatrix.h</a>.</p>
+<p class="definition">Definition at line <a class="el" href="_generic_matrix_8h_source.html#l00362">362</a> of file <a class="el" href="_generic_matrix_8h_source.html">GenericMatrix.h</a>.</p>
 
 </div>
 </div>
@@ -986,7 +988,7 @@ template&lt;typename Elem &gt; </div>
 <dl class="section note"><dt>Note</dt><dd>No bounds checking is performed.</dd></dl>
 <dl class="section see"><dt>See also</dt><dd><a class="el" href="class_generic_matrix.html#a577dee68958700259f8fdfc10dea588f">at()</a> </dd></dl>
 
-<p class="definition">Definition at line <a class="el" href="_generic_matrix_8h_source.html#l00347">347</a> of file <a class="el" href="_generic_matrix_8h_source.html">GenericMatrix.h</a>.</p>
+<p class="definition">Definition at line <a class="el" href="_generic_matrix_8h_source.html#l00348">348</a> of file <a class="el" href="_generic_matrix_8h_source.html">GenericMatrix.h</a>.</p>
 
 </div>
 </div>
@@ -1016,7 +1018,7 @@ template&lt;typename Elem &gt; </div>
 </dl>
 <dl class="section see"><dt>See also</dt><dd><a class="el" href="class_generic_matrix.html#a9047dd7ad727429a1dc53cd6fee28d17">operator-=()</a> </dd></dl>
 
-<p class="definition">Definition at line <a class="el" href="_generic_matrix_8h_source.html#l00599">599</a> of file <a class="el" href="_generic_matrix_8h_source.html">GenericMatrix.h</a>.</p>
+<p class="definition">Definition at line <a class="el" href="_generic_matrix_8h_source.html#l00610">610</a> of file <a class="el" href="_generic_matrix_8h_source.html">GenericMatrix.h</a>.</p>
 
 </div>
 </div>
@@ -1046,7 +1048,7 @@ template&lt;typename Elem &gt; </div>
 </dl>
 <dl class="section see"><dt>See also</dt><dd><a class="el" href="class_generic_matrix.html#ae7ef1f09abfcb816164af46546fe8ac5">operator+=()</a> </dd></dl>
 
-<p class="definition">Definition at line <a class="el" href="_generic_matrix_8h_source.html#l00618">618</a> of file <a class="el" href="_generic_matrix_8h_source.html">GenericMatrix.h</a>.</p>
+<p class="definition">Definition at line <a class="el" href="_generic_matrix_8h_source.html#l00629">629</a> of file <a class="el" href="_generic_matrix_8h_source.html">GenericMatrix.h</a>.</p>
 
 </div>
 </div>
@@ -1070,7 +1072,7 @@ template&lt;typename Elem &gt; </div>
 <p>Divides all elements of this matrix by <em>divisor</em>.</p>
 <dl class="section see"><dt>See also</dt><dd><a class="el" href="class_generic_matrix.html#a86dda6fbb03505680242d617cbad5801">operator*=()</a> </dd></dl>
 
-<p class="definition">Definition at line <a class="el" href="_generic_matrix_8h_source.html#l00671">671</a> of file <a class="el" href="_generic_matrix_8h_source.html">GenericMatrix.h</a>.</p>
+<p class="definition">Definition at line <a class="el" href="_generic_matrix_8h_source.html#l00682">682</a> of file <a class="el" href="_generic_matrix_8h_source.html">GenericMatrix.h</a>.</p>
 
 </div>
 </div>
@@ -1093,7 +1095,7 @@ template&lt;typename Elem &gt; </div>
 </div><div class="memdoc">
 <p>Assigns <em>other</em> to this matrix and returns a reference to this matrix. </p>
 
-<p class="definition">Definition at line <a class="el" href="_generic_matrix_8h_source.html#l00240">240</a> of file <a class="el" href="_generic_matrix_8h_source.html">GenericMatrix.h</a>.</p>
+<p class="definition">Definition at line <a class="el" href="_generic_matrix_8h_source.html#l00241">241</a> of file <a class="el" href="_generic_matrix_8h_source.html">GenericMatrix.h</a>.</p>
 
 </div>
 </div>
@@ -1116,7 +1118,7 @@ template&lt;typename Elem &gt; </div>
 </div><div class="memdoc">
 <p>Move-assigns <em>other</em> to this <a class="el" href="class_generic_matrix.html" title="The GenericMatrix class defines a generic template matrix class, the matrix elements are managed by a...">GenericMatrix</a> instance. </p>
 
-<p class="definition">Definition at line <a class="el" href="_generic_matrix_8h_source.html#l00256">256</a> of file <a class="el" href="_generic_matrix_8h_source.html">GenericMatrix.h</a>.</p>
+<p class="definition">Definition at line <a class="el" href="_generic_matrix_8h_source.html#l00257">257</a> of file <a class="el" href="_generic_matrix_8h_source.html">GenericMatrix.h</a>.</p>
 
 </div>
 </div>
@@ -1140,7 +1142,46 @@ template&lt;typename Elem &gt; </div>
 <p>Returns <code>true</code> if this matrix is identical to <em>m</em>; false otherwise.</p>
 <dl class="section see"><dt>See also</dt><dd><a class="el" href="class_generic_matrix.html#a5f97fb5d9cbc429ab6854f7a9f030a6c">operator!=()</a> </dd></dl>
 
-<p class="definition">Definition at line <a class="el" href="_generic_matrix_8h_source.html#l00685">685</a> of file <a class="el" href="_generic_matrix_8h_source.html">GenericMatrix.h</a>.</p>
+<p class="definition">Definition at line <a class="el" href="_generic_matrix_8h_source.html#l00696">696</a> of file <a class="el" href="_generic_matrix_8h_source.html">GenericMatrix.h</a>.</p>
+
+</div>
+</div>
+<a id="abfa203a409f900259fb24f194160e71a"></a>
+<h2 class="memtitle"><span class="permalink"><a href="#abfa203a409f900259fb24f194160e71a">&#9670;&nbsp;</a></span>reset()</h2>
+
+<div class="memitem">
+<div class="memproto">
+<div class="memtemplate">
+template&lt;typename Elem &gt; </div>
+      <table class="memname">
+        <tr>
+          <td class="memname">void <a class="el" href="class_generic_matrix.html">GenericMatrix</a>&lt; Elem &gt;::reset </td>
+          <td>(</td>
+          <td class="paramtype"><a class="el" href="class_generic_matrix.html#a625d2eb79996d4d7d8ddc3beef4beab7">size_type</a>&#160;</td>
+          <td class="paramname"><em>row</em>, </td>
+        </tr>
+        <tr>
+          <td class="paramkey"></td>
+          <td></td>
+          <td class="paramtype"><a class="el" href="class_generic_matrix.html#a625d2eb79996d4d7d8ddc3beef4beab7">size_type</a>&#160;</td>
+          <td class="paramname"><em>col</em>, </td>
+        </tr>
+        <tr>
+          <td class="paramkey"></td>
+          <td></td>
+          <td class="paramtype">Elem *&#160;</td>
+          <td class="paramname"><em>data</em>&#160;</td>
+        </tr>
+        <tr>
+          <td></td>
+          <td>)</td>
+          <td></td><td></td>
+        </tr>
+      </table>
+</div><div class="memdoc">
+<p>Reset this matrix to <em>row</em> x <em>col</em> matrix and set the elments pointer to <em>data</em>. </p>
+
+<p class="definition">Definition at line <a class="el" href="_generic_matrix_8h_source.html#l00461">461</a> of file <a class="el" href="_generic_matrix_8h_source.html">GenericMatrix.h</a>.</p>
 
 </div>
 </div>
@@ -1171,10 +1212,9 @@ template&lt;typename Elem &gt; </div>
         </tr>
       </table>
 </div><div class="memdoc">
-<p>Reconstructs a <em>row</em> x <em>col</em> identity matrix without initializing the contents.</p>
-<dl class="section see"><dt>See also</dt><dd><a class="el" href="class_generic_matrix.html#a2194f388ee5efa5e8147bfc6acc34811">isIdentity()</a> </dd></dl>
+<p>Reconstructs a <em>row</em> x <em>col</em> matrix without initializing the contents. </p>
 
-<p class="definition">Definition at line <a class="el" href="_generic_matrix_8h_source.html#l00435">435</a> of file <a class="el" href="_generic_matrix_8h_source.html">GenericMatrix.h</a>.</p>
+<p class="definition">Definition at line <a class="el" href="_generic_matrix_8h_source.html#l00434">434</a> of file <a class="el" href="_generic_matrix_8h_source.html">GenericMatrix.h</a>.</p>
 
 </div>
 </div>
@@ -1211,9 +1251,9 @@ template&lt;typename Elem &gt; </div>
         </tr>
       </table>
 </div><div class="memdoc">
-<p>Reconstructs a <em>row</em> x <em>col</em> identity matrix and initialize all values with <em>initialValue</em>. </p>
+<p>Reconstructs a <em>row</em> x <em>col</em> matrix and initialize all values with <em>initialValue</em>. </p>
 
-<p class="definition">Definition at line <a class="el" href="_generic_matrix_8h_source.html#l00452">452</a> of file <a class="el" href="_generic_matrix_8h_source.html">GenericMatrix.h</a>.</p>
+<p class="definition">Definition at line <a class="el" href="_generic_matrix_8h_source.html#l00451">451</a> of file <a class="el" href="_generic_matrix_8h_source.html">GenericMatrix.h</a>.</p>
 
 </div>
 </div>
@@ -1244,7 +1284,7 @@ template&lt;typename Elem &gt; </div>
 <p>Returns the number of matrix rows.</p>
 <dl class="section see"><dt>See also</dt><dd><a class="el" href="class_generic_matrix.html#ad5fc9aa7e7f8e0aa448dd04398d71d27">columns()</a>, <a class="el" href="class_generic_matrix.html#af0fcee259354acaf45f9589d2f749e01">size()</a> </dd></dl>
 
-<p class="definition">Definition at line <a class="el" href="_generic_matrix_8h_source.html#l00279">279</a> of file <a class="el" href="_generic_matrix_8h_source.html">GenericMatrix.h</a>.</p>
+<p class="definition">Definition at line <a class="el" href="_generic_matrix_8h_source.html#l00280">280</a> of file <a class="el" href="_generic_matrix_8h_source.html">GenericMatrix.h</a>.</p>
 
 </div>
 </div>
@@ -1267,7 +1307,7 @@ template&lt;typename Elem &gt; </div>
 <p>Sets this matrix to the identity.</p>
 <dl class="section see"><dt>See also</dt><dd><a class="el" href="class_generic_matrix.html#a2194f388ee5efa5e8147bfc6acc34811">isIdentity()</a> </dd></dl>
 
-<p class="definition">Definition at line <a class="el" href="_generic_matrix_8h_source.html#l00464">464</a> of file <a class="el" href="_generic_matrix_8h_source.html">GenericMatrix.h</a>.</p>
+<p class="definition">Definition at line <a class="el" href="_generic_matrix_8h_source.html#l00475">475</a> of file <a class="el" href="_generic_matrix_8h_source.html">GenericMatrix.h</a>.</p>
 
 </div>
 </div>
@@ -1298,7 +1338,7 @@ template&lt;typename Elem &gt; </div>
 <p>Returns the number of matrix elements.</p>
 <dl class="section see"><dt>See also</dt><dd><a class="el" href="class_generic_matrix.html#a16c64a05f548b21c7d64755f22bdb841">rows()</a>, <a class="el" href="class_generic_matrix.html#ad5fc9aa7e7f8e0aa448dd04398d71d27">columns()</a> </dd></dl>
 
-<p class="definition">Definition at line <a class="el" href="_generic_matrix_8h_source.html#l00301">301</a> of file <a class="el" href="_generic_matrix_8h_source.html">GenericMatrix.h</a>.</p>
+<p class="definition">Definition at line <a class="el" href="_generic_matrix_8h_source.html#l00302">302</a> of file <a class="el" href="_generic_matrix_8h_source.html">GenericMatrix.h</a>.</p>
 
 </div>
 </div>
@@ -1321,7 +1361,7 @@ template&lt;typename Elem &gt; </div>
 </div><div class="memdoc">
 <p>Swaps matrix <em>other</em> with this matrix. </p>
 
-<p class="definition">Definition at line <a class="el" href="_generic_matrix_8h_source.html#l00586">586</a> of file <a class="el" href="_generic_matrix_8h_source.html">GenericMatrix.h</a>.</p>
+<p class="definition">Definition at line <a class="el" href="_generic_matrix_8h_source.html#l00597">597</a> of file <a class="el" href="_generic_matrix_8h_source.html">GenericMatrix.h</a>.</p>
 
 </div>
 </div>
@@ -1343,7 +1383,7 @@ template&lt;typename Elem &gt; </div>
 </div><div class="memdoc">
 <p>Returns this matrix, transposed about its diagonal. </p>
 
-<p class="definition">Definition at line <a class="el" href="_generic_matrix_8h_source.html#l00481">481</a> of file <a class="el" href="_generic_matrix_8h_source.html">GenericMatrix.h</a>.</p>
+<p class="definition">Definition at line <a class="el" href="_generic_matrix_8h_source.html#l00492">492</a> of file <a class="el" href="_generic_matrix_8h_source.html">GenericMatrix.h</a>.</p>
 
 </div>
 </div>
@@ -1393,7 +1433,7 @@ template&lt;typename __Elem &gt; </div>
   </dd>
 </dl>
 
-<p class="definition">Definition at line <a class="el" href="_generic_matrix_8h_source.html#l00765">765</a> of file <a class="el" href="_generic_matrix_8h_source.html">GenericMatrix.h</a>.</p>
+<p class="definition">Definition at line <a class="el" href="_generic_matrix_8h_source.html#l00776">776</a> of file <a class="el" href="_generic_matrix_8h_source.html">GenericMatrix.h</a>.</p>
 
 </div>
 </div>
@@ -1436,7 +1476,7 @@ template&lt;typename __Elem &gt; </div>
 </div><div class="memdoc">
 <p>Returns the result of multiplying all elements of <em>matrix</em> by <em>factor</em>. </p>
 
-<p class="definition">Definition at line <a class="el" href="_generic_matrix_8h_source.html#l00788">788</a> of file <a class="el" href="_generic_matrix_8h_source.html">GenericMatrix.h</a>.</p>
+<p class="definition">Definition at line <a class="el" href="_generic_matrix_8h_source.html#l00799">799</a> of file <a class="el" href="_generic_matrix_8h_source.html">GenericMatrix.h</a>.</p>
 
 </div>
 </div>
@@ -1479,7 +1519,7 @@ template&lt;typename __Elem &gt; </div>
 </div><div class="memdoc">
 <p>Returns the result of multiplying all elements of <em>matrix</em> by <em>factor</em>. </p>
 
-<p class="definition">Definition at line <a class="el" href="_generic_matrix_8h_source.html#l00804">804</a> of file <a class="el" href="_generic_matrix_8h_source.html">GenericMatrix.h</a>.</p>
+<p class="definition">Definition at line <a class="el" href="_generic_matrix_8h_source.html#l00815">815</a> of file <a class="el" href="_generic_matrix_8h_source.html">GenericMatrix.h</a>.</p>
 
 </div>
 </div>
@@ -1528,7 +1568,7 @@ template&lt;typename __Elem &gt; </div>
   </dd>
 </dl>
 
-<p class="definition">Definition at line <a class="el" href="_generic_matrix_8h_source.html#l00722">722</a> of file <a class="el" href="_generic_matrix_8h_source.html">GenericMatrix.h</a>.</p>
+<p class="definition">Definition at line <a class="el" href="_generic_matrix_8h_source.html#l00733">733</a> of file <a class="el" href="_generic_matrix_8h_source.html">GenericMatrix.h</a>.</p>
 
 </div>
 </div>
@@ -1577,7 +1617,7 @@ template&lt;typename __Elem &gt; </div>
   </dd>
 </dl>
 
-<p class="definition">Definition at line <a class="el" href="_generic_matrix_8h_source.html#l00743">743</a> of file <a class="el" href="_generic_matrix_8h_source.html">GenericMatrix.h</a>.</p>
+<p class="definition">Definition at line <a class="el" href="_generic_matrix_8h_source.html#l00754">754</a> of file <a class="el" href="_generic_matrix_8h_source.html">GenericMatrix.h</a>.</p>
 
 </div>
 </div>
@@ -1610,7 +1650,7 @@ template&lt;typename __Elem &gt; </div>
 </div><div class="memdoc">
 <p>Returns the negation of <em>matrix</em>. </p>
 
-<p class="definition">Definition at line <a class="el" href="_generic_matrix_8h_source.html#l00836">836</a> of file <a class="el" href="_generic_matrix_8h_source.html">GenericMatrix.h</a>.</p>
+<p class="definition">Definition at line <a class="el" href="_generic_matrix_8h_source.html#l00847">847</a> of file <a class="el" href="_generic_matrix_8h_source.html">GenericMatrix.h</a>.</p>
 
 </div>
 </div>
@@ -1653,7 +1693,7 @@ template&lt;typename __Elem &gt; </div>
 </div><div class="memdoc">
 <p>Returns the result of dividing all elements of <em>matrix</em> by <em>divisor</em>. </p>
 
-<p class="definition">Definition at line <a class="el" href="_generic_matrix_8h_source.html#l00820">820</a> of file <a class="el" href="_generic_matrix_8h_source.html">GenericMatrix.h</a>.</p>
+<p class="definition">Definition at line <a class="el" href="_generic_matrix_8h_source.html#l00831">831</a> of file <a class="el" href="_generic_matrix_8h_source.html">GenericMatrix.h</a>.</p>
 
 </div>
 </div>
@@ -1696,7 +1736,7 @@ template&lt;typename __Elem &gt; </div>
 </div><div class="memdoc">
 <p>Writes the given <em>matrix</em> to the given <em>stream</em> and returns a reference to the stream. </p>
 
-<p class="definition">Definition at line <a class="el" href="_generic_matrix_8h_source.html#l00853">853</a> of file <a class="el" href="_generic_matrix_8h_source.html">GenericMatrix.h</a>.</p>
+<p class="definition">Definition at line <a class="el" href="_generic_matrix_8h_source.html#l00864">864</a> of file <a class="el" href="_generic_matrix_8h_source.html">GenericMatrix.h</a>.</p>
 
 </div>
 </div>

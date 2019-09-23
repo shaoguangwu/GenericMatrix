@@ -67,13 +67,21 @@ $(function() {
 </div><!--header-->
 <div class="contents">
 <div class="textblock"><p>C++ cross platform generic matrix template class, C++11 Required Support.</p>
-<p>Two classes: |Class||Brief| |:&mdash;|:&mdash;| |GenericMatrix|A generic template matrix class, the matrix elements are managed by a one-dimension pointer.| |GenericMatrix2|A generic template matrix class, the matrix elements are managed by a two-dimension pointer.|</p>
+<p>Two classes:</p>
+<table class="markdownTable">
+<tr class="markdownTableHead">
+<th class="markdownTableHeadNone">Class  </th><th class="markdownTableHeadNone">Brief   </th></tr>
+<tr class="markdownTableRowOdd">
+<td class="markdownTableBodyNone"><a class="el" href="class_generic_matrix.html" title="The GenericMatrix class defines a generic template matrix class, the matrix elements are managed by a...">GenericMatrix</a>  </td><td class="markdownTableBodyNone">A generic template matrix class, the matrix elements are managed by a one-dimension pointer.   </td></tr>
+<tr class="markdownTableRowEven">
+<td class="markdownTableBodyNone"><a class="el" href="class_generic_matrix2.html" title="The GenericMatrix2 class defines a generic template matrix class, the matrix elements are managed by ...">GenericMatrix2</a>  </td><td class="markdownTableBodyNone">A generic template matrix class, the matrix elements are managed by a two-dimension pointer.   </td></tr>
+</table>
 <p>More interface information see "doc/html/index.html".</p>
 <p>C++跨平台通用模板矩阵类，需编译器支持C++11.</p>
 <p>接口详细文档见“doc/html/index.html”。</p>
 <h2>Quick Example</h2>
 <p>linux or windows:</p>
-<div class="fragment"><div class="line"><a class="code" href="class_generic_matrix.html">GenericMatrix&lt;&gt;</a> matrix(2, 4);</div><div class="line">matrix.fill(1);</div><div class="line"></div><div class="line"><a class="code" href="class_generic_matrix2.html">GenericMatrix2&lt;&gt;</a> matrix2(4, 4, 0);</div><div class="line">matrix2.setToIdentity();</div><div class="line"></div><div class="line">std::cout &lt;&lt; matrix &lt;&lt; std::endl;</div><div class="line">std::cout &lt;&lt; matrix2 &lt;&lt; std::endl;</div></div><!-- fragment --><p>(Compiled by gcc7.4.0) The Result is:</p>
+<div class="fragment"><div class="line"><a class="code" href="class_generic_matrix.html">GenericMatrix&lt;&gt;</a> matrix(2, 4);</div><div class="line">matrix.fill(1);</div><div class="line"></div><div class="line"><a class="code" href="class_generic_matrix2.html">GenericMatrix2&lt;&gt;</a> matrix2(4, 4, 0);</div><div class="line">matrix2.setToIdentity();</div><div class="line"></div><div class="line">std::cout &lt;&lt; matrix &lt;&lt; std::endl;</div><div class="line">std::cout &lt;&lt; matrix2 &lt;&lt; std::endl;</div></div><!-- fragment --><p>(Compiled by gcc 7.4.0) The Result is:</p>
 <div class="fragment"><div class="line"><a class="code" href="class_generic_matrix.html">GenericMatrix&lt;2, 4, f&gt;</a>(</div><div class="line">         01         01         01         01</div><div class="line">         01         01         01         01</div><div class="line">)</div><div class="line"><a class="code" href="class_generic_matrix2.html">GenericMatrix2</a>&lt;4, 4, f&gt;(</div><div class="line">         01         00         00         00</div><div class="line">         00         01         00         00</div><div class="line">         00         00         01         00</div><div class="line">         00         00         00         01</div><div class="line">)</div></div><!-- fragment --><h2>License</h2>
 <p>[Apache License 2.0](LICENSE) </p>
 </div></div><!-- PageDoc -->

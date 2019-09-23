@@ -526,9 +526,7 @@ bool GenericMatrix2<Elem>::isIdentity() const
 }
 
 /*!
-    Reconstructs a \a row x \a col identity matrix without initializing the contents.
-
-    \sa isIdentity()
+    Reconstructs a \a row x \a col matrix without initializing the contents.
 */
 template<typename Elem>
 void GenericMatrix2<Elem>::resize(size_type row, size_type col)
@@ -541,7 +539,7 @@ void GenericMatrix2<Elem>::resize(size_type row, size_type col)
 }
 
 /*!
-    Reconstructs a \a row x \a col identity matrix and initialize all values with \a initialValue.
+    Reconstructs a \a row x \a col matrix and initialize all values with \a initialValue.
 */
 template<typename Elem>
 void GenericMatrix2<Elem>::resize(size_type row, size_type col, const Elem &initialValue)

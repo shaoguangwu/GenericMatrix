@@ -70,6 +70,7 @@ public:
 
     void resize(size_type row, size_type col);
     void resize(size_type row, size_type col, const Elem &initialValue);
+    void reset(size_type row, size_type col, Elem *data);
     void setToIdentity();
     void fill(const Elem &value);
     void swap(GenericMatrix<Elem> &other);
@@ -427,9 +428,7 @@ bool GenericMatrix<Elem>::isIdentity() const
 }
 
 /*!
-    Reconstructs a \a row x \a col identity matrix without initializing the contents.
-
-    \sa isIdentity()
+    Reconstructs a \a row x \a col matrix without initializing the contents.
 */
 template<typename Elem>
 void GenericMatrix<Elem>::resize(size_type row, size_type col)
@@ -446,13 +445,25 @@ void GenericMatrix<Elem>::resize(size_type row, size_type col)
 }
 
 /*!
-    Reconstructs a \a row x \a col identity matrix and initialize all values with \a initialValue.
+    Reconstructs a \a row x \a col matrix and initialize all values with \a initialValue.
 */
 template<typename Elem>
 void GenericMatrix<Elem>::resize(size_type row, size_type col, const Elem &initialValue)
 {
     resize(row, col);
     fill(initialValue);
+}
+
+/*!
+    Reset this matrix to \a row x \a col matrix and set the elments pointer to \a data.
+*/
+template<typename Elem>
+void GenericMatrix<Elem>::reset(size_type row, size_type col, Elem *data)
+{
+    free();
+    m_rows = row;
+    m_cols = col;
+    m_data = data;
 }
 
 /*!
