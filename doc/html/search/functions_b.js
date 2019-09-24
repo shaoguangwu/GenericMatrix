@@ -1,5 +1,4 @@
 var searchData=
 [
-  ['_7egenericmatrix',['~GenericMatrix',['../class_generic_matrix.html#ab1e2f1bb9f6dacaf2e98885115171333',1,'GenericMatrix']]],
-  ['_7egenericmatrix2',['~GenericMatrix2',['../class_generic_matrix2.html#afbf9995d9187348346776c3f18a1d8bf',1,'GenericMatrix2']]]
+  ['transposed',['transposed',['../class_generic_matrix.html#abbe748926af1770d60ad3a5f01010ff5',1,'GenericMatrix::transposed()'],['../class_generic_matrix2.html#a30cd2842d6c451e08cc88c789cef91bc',1,'GenericMatrix2::transposed()']]]
 ];
