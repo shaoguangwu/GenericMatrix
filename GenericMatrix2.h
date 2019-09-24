@@ -49,8 +49,9 @@ public:
     GenericMatrix2 &operator=(const GenericMatrix2 &other);
     GenericMatrix2 &operator=(GenericMatrix2 &&other) noexcept;
 
-    size_type rows() const noexcept;
-    size_type columns() const noexcept;
+    size_type rows() const;
+    size_type columns() const;
+    size_type size() const;
 
     Elem **data();
     const Elem * const *data() const;
@@ -69,7 +70,8 @@ public:
     Elem &at(size_type row, size_type col);
     const Elem &at(size_type row, size_type col) const;
 
-    bool isValid() const noexcept;
+    bool empty() const;
+    bool isValid() const;
     bool isIdentity() const;
     inline bool isHomomorphicTo(const GenericMatrix2<Elem> &m);
     static inline bool isHomomorphic(const GenericMatrix2<Elem> &m1, const GenericMatrix2<Elem> &m2);
@@ -291,7 +293,7 @@ GenericMatrix2<Elem> &GenericMatrix2<Elem>::operator=(GenericMatrix2 &&other) no
     \sa columns()
 */
 template<typename Elem>
-typename GenericMatrix2<Elem>::size_type GenericMatrix2<Elem>::rows() const noexcept
+typename GenericMatrix2<Elem>::size_type GenericMatrix2<Elem>::rows() const
 {
     return m_rows;
 }
@@ -302,9 +304,20 @@ typename GenericMatrix2<Elem>::size_type GenericMatrix2<Elem>::rows() const noex
     \sa rows()
 */
 template<typename Elem>
-typename GenericMatrix2<Elem>::size_type GenericMatrix2<Elem>::columns() const noexcept
+typename GenericMatrix2<Elem>::size_type GenericMatrix2<Elem>::columns() const
 {
     return m_cols;
+}
+
+/*!
+    Returns the number of matrix elements.
+
+    \sa rows(), columns()
+*/
+template<typename Elem>
+typename GenericMatrix2<Elem>::size_type GenericMatrix2<Elem>::size() const
+{
+    return m_rows * m_cols;
 }
 
 /*!
@@ -495,10 +508,20 @@ Elem &GenericMatrix2<Elem>::at(size_type row, size_type col)
 }
 
 /*!
+    Returns \c true if this matrix element's size equal to 0,
+    otherwise returns \c false.
+*/
+template<typename Elem>
+bool GenericMatrix2<Elem>::empty() const
+{
+    return 0 == size();
+}
+
+/*!
     Returns \c true if this matrix internal data is not null pointer and matrix rows/cols greater than 0, otherwise returns \c false.
 */
 template<typename Elem>
-bool GenericMatrix2<Elem>::isValid() const noexcept
+bool GenericMatrix2<Elem>::isValid() const
 {
     return m_data && m_rows > 0 && m_cols > 0;
 }

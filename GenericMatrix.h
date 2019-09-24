@@ -43,6 +43,7 @@ public:
 
     GenericMatrix();
     GenericMatrix(size_type row, size_type col);
+    explicit GenericMatrix(size_type row, size_type col, Elem *data);
     GenericMatrix(size_type row, size_type col, const Elem &initialValue);
     GenericMatrix(const GenericMatrix &other);
     GenericMatrix(GenericMatrix &&other) noexcept;
@@ -50,9 +51,9 @@ public:
     GenericMatrix &operator=(const GenericMatrix &other);
     GenericMatrix &operator=(GenericMatrix &&other) noexcept;
 
-    size_type rows() const noexcept;
-    size_type columns() const noexcept;
-    size_type size() const noexcept;
+    size_type rows() const;
+    size_type columns() const;
+    size_type size() const;
 
     Elem *data();
     const Elem *data() const;
@@ -63,7 +64,8 @@ public:
     Elem &at(size_type row, size_type col);
     const Elem &at(size_type row, size_type col) const;
 
-    bool isValid() const noexcept;
+    bool empty() const;
+    bool isValid() const;
     bool isIdentity() const;
     inline bool isHomomorphicTo(const GenericMatrix<Elem> &m);
     static inline bool isHomomorphic(const GenericMatrix<Elem> &m1, const GenericMatrix<Elem> &m2);
@@ -109,7 +111,7 @@ public:
 private:
     void alloc();
     void free();
-    size_type computeOffset(size_type row, size_type col) const noexcept;
+    size_type computeOffset(size_type row, size_type col) const;
 
 private:
     size_type m_rows;
@@ -149,6 +151,19 @@ GenericMatrix<Elem>::GenericMatrix(size_type row, size_type col)
     : m_rows(row), m_cols(col), m_data(nullptr)
 {
     alloc();
+}
+
+/*!
+    Constructs a \a row x \a col matrix and set the element pointer to \a data.
+
+    \note \a data pointer will be free when destroy this matrix.
+
+    \sa reset()
+*/
+template<typename Elem>
+GenericMatrix<Elem>::GenericMatrix(size_type row, size_type col, Elem *data)
+    : m_rows(row), m_cols(col), m_data(data)
+{
 }
 
 /*!
@@ -206,7 +221,7 @@ void GenericMatrix<Elem>::free()
     Compute internal data offset by \a row and \a col.
 */
 template<typename Elem>
-typename GenericMatrix<Elem>::size_type GenericMatrix<Elem>::computeOffset(size_type row, size_type col) const noexcept
+typename GenericMatrix<Elem>::size_type GenericMatrix<Elem>::computeOffset(size_type row, size_type col) const
 {
     return row * m_cols + col;
 }
@@ -219,7 +234,7 @@ GenericMatrix<Elem>::GenericMatrix(const GenericMatrix &other)
     : m_rows(other.m_rows), m_cols(other.m_cols), m_data(nullptr)
 {
     alloc();
-    std::copy_n(other.m_data(), other.size(), m_data);
+    std::copy_n(other.data(), other.size(), m_data);
 }
 
 /*!
@@ -277,7 +292,7 @@ GenericMatrix<Elem> &GenericMatrix<Elem>::operator=(GenericMatrix &&other) noexc
     \sa columns(), size()
 */
 template<typename Elem>
-typename GenericMatrix<Elem>::size_type GenericMatrix<Elem>::rows() const noexcept
+typename GenericMatrix<Elem>::size_type GenericMatrix<Elem>::rows() const
 {
     return m_rows;
 }
@@ -288,7 +303,7 @@ typename GenericMatrix<Elem>::size_type GenericMatrix<Elem>::rows() const noexce
     \sa rows(), size()
 */
 template<typename Elem>
-typename GenericMatrix<Elem>::size_type GenericMatrix<Elem>::columns() const noexcept
+typename GenericMatrix<Elem>::size_type GenericMatrix<Elem>::columns() const
 {
     return m_cols;
 }
@@ -299,7 +314,7 @@ typename GenericMatrix<Elem>::size_type GenericMatrix<Elem>::columns() const noe
     \sa rows(), columns()
 */
 template<typename Elem>
-typename GenericMatrix<Elem>::size_type GenericMatrix<Elem>::size() const noexcept
+typename GenericMatrix<Elem>::size_type GenericMatrix<Elem>::size() const
 {
     return m_rows * m_cols;
 }
@@ -397,10 +412,20 @@ Elem &GenericMatrix<Elem>::at(size_type row, size_type col)
 }
 
 /*!
+    Returns \c true if this matrix element's size equal to 0,
+    otherwise returns \c false.
+*/
+template<typename Elem>
+bool GenericMatrix<Elem>::empty() const
+{
+    return 0 == size();
+}
+
+/*!
     Returns \c true if this matrix internal data is not null pointer and matrix rows/cols greater than 0, otherwise returns \c false.
 */
 template<typename Elem>
-bool GenericMatrix<Elem>::isValid() const noexcept
+bool GenericMatrix<Elem>::isValid() const
 {
     return m_data && m_rows > 0 && m_cols > 0;
 }
@@ -456,6 +481,8 @@ void GenericMatrix<Elem>::resize(size_type row, size_type col, const Elem &initi
 
 /*!
     Reset this matrix to \a row x \a col matrix and set the elments pointer to \a data.
+
+    \note \a data pointer will be free when destroy this matrix.
 */
 template<typename Elem>
 void GenericMatrix<Elem>::reset(size_type row, size_type col, Elem *data)
