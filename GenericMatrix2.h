@@ -23,7 +23,8 @@
 #define __GERNERICMATRIX2_H__
 
 #include <ostream>
-#include <utility>
+#include <utility>      // std::move,
+#include <algorithm>    // std::fill_n, std::copy_n
 
 /*!
     \class GenericMatrix2
@@ -85,9 +86,6 @@ public:
     void doHadamardProduct(const GenericMatrix2<Elem> &m);
     static GenericMatrix2<Elem> hadamardProduct(const GenericMatrix2<Elem> &m1, const GenericMatrix2<Elem> &m2);
 
-    template<typename ElemDst>
-    GenericMatrix2<ElemDst> cast() const;
-
     GenericMatrix2<Elem> &operator+=(const GenericMatrix2<Elem> &m);
     GenericMatrix2<Elem> &operator-=(const GenericMatrix2<Elem> &m);
     GenericMatrix2<Elem> &operator*=(const GenericMatrix2<Elem> &m);
@@ -96,6 +94,8 @@ public:
     bool operator==(const GenericMatrix2<Elem> &m) const;
     bool operator!=(const GenericMatrix2<Elem> &m) const;
 
+    template<typename __ElemDTo, typename __Elem>
+    friend GenericMatrix2<__ElemDTo> matrix_cast(const GenericMatrix2<__Elem> &m);
     template<typename __Elem>
     friend GenericMatrix2<__Elem> operator+(const GenericMatrix2<__Elem> &m1, const GenericMatrix2<__Elem> &m2);
     template<typename __Elem>
@@ -612,10 +612,8 @@ template<typename Elem>
 void GenericMatrix2<Elem>::fill(const Elem &value)
 {
     for (size_type i = 0; i < m_rows; ++i) {
-        for (size_type j = 0; j < m_cols; ++j) {
-            m_data[i][j] = value;
-        }
-    }        
+        std::fill_n(m_data[i], m_cols, value);
+    }      
 }
 
 /*!
@@ -656,24 +654,6 @@ GenericMatrix2<Elem> GenericMatrix2<Elem>::hadamardProduct(const GenericMatrix2<
             result.m_data[i][j] = m1.m_data[i][j] * m2.m_data[i][j];
         }
     }
-    return result;
-}
-
-/*!
-    Returns a new element type matrix.
-
-    \note The \b ElemDst must can do \c static_cast<ElemDst>(Elem).
-*/
-template<typename Elem>
-template<typename ElemDst>
-GenericMatrix2<ElemDst> GenericMatrix2<Elem>::cast() const
-{
-    GenericMatrix2<ElemDst> result(m_rows, m_cols);
-    for (size_type i = 0; i < m_rows; ++i) {
-        for (size_type j = 0; j < m_cols; ++j) {
-            result(i, j) = static_cast<ElemDst>(m_data[i][j]);
-        }
-    }      
     return result;
 }
 
@@ -841,6 +821,25 @@ bool GenericMatrix2<Elem>::operator!=(const GenericMatrix2<Elem> &m) const
 /*****************************************************************************
   friend functions
  *****************************************************************************/
+
+/*!
+    \relates GenericMatrix2
+
+    Converts a matrix to a different type matrix.
+
+    \note The \b __ElemDst must can do \c static_cast<__ElemDst>(__Elem).
+*/
+template<typename __ElemDTo, typename __Elem>
+GenericMatrix2<__ElemDTo> matrix_cast(const GenericMatrix2<__Elem> &m)
+{
+    using size_type = typename GenericMatrix2<__Elem>::size_type;
+    GenericMatrix2<__ElemDTo> result(m.rows(), m.columns());
+    for (size_type i = 0; i < m.rows(); ++i) {
+        std::copy_n(m[i], m.columns(), result[i]);
+    }
+    return result;
+}
+
 
 /*!
     \relates GenericMatrix2

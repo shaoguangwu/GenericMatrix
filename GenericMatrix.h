@@ -23,7 +23,7 @@
 #define __GERNERICMATRIX_H__
 
 #include <ostream>
-#include <utility>      // std:::move
+#include <utility>      // std::move,   std::pair
 #include <algorithm>    // std::fill_n, std::copy_n
 
 /*!
@@ -40,24 +40,41 @@ class GenericMatrix
 public:
     using size_type = std::size_t;
     using value_type = Elem;
+    using iterator = value_type *;
+    using const_iterator = const iterator;
+    using reverse_iterator = value_type *;
+    using const_reverse_iterator = const value_type * ;
 
     GenericMatrix();
     GenericMatrix(size_type row, size_type col);
-    explicit GenericMatrix(size_type row, size_type col, Elem *data);
     GenericMatrix(size_type row, size_type col, const Elem &initialValue);
+    GenericMatrix(size_type row, size_type col, Elem *data);
     GenericMatrix(const GenericMatrix &other);
     GenericMatrix(GenericMatrix &&other) noexcept;
     ~GenericMatrix();
     GenericMatrix &operator=(const GenericMatrix &other);
     GenericMatrix &operator=(GenericMatrix &&other) noexcept;
 
+    iterator begin() noexcept;
+    const_iterator begin() const noexcept;
+    const_iterator cbegin() const noexcept;
+    iterator end() noexcept;
+    const_iterator end() const noexcept;
+    const_iterator cend() const noexcept;
+
     size_type rows() const;
     size_type columns() const;
     size_type size() const;
 
-    Elem *data();
-    const Elem *data() const;
-    const Elem *constData() const;
+    Elem *data() noexcept;
+    const Elem *data() const noexcept;
+    const Elem *constData() const noexcept;
+    Elem *data(size_type row, size_type col) noexcept;
+    const Elem *data(size_type row, size_type col) const noexcept;
+    const Elem *constData(size_type row, size_type col) const noexcept;
+    Elem *dataAt(size_type row, size_type col) noexcept;
+    const Elem *dataAt(size_type row, size_type col) const noexcept;
+    const Elem *constDataAt(size_type row, size_type col) const noexcept;
 
     Elem &operator()(size_type row, size_type col);
     const Elem &operator()(size_type row, size_type col) const;
@@ -76,12 +93,11 @@ public:
     void setToIdentity();
     void fill(const Elem &value);
     void swap(GenericMatrix<Elem> &other);
+    GenericMatrix<Elem> reverse() const;
     GenericMatrix<Elem> transposed() const;
     void doHadamardProduct(const GenericMatrix<Elem> &m);
     static GenericMatrix<Elem> hadamardProduct(const GenericMatrix<Elem> &m1, const GenericMatrix<Elem> &m2);
-
-    template<typename ElemDst>
-    GenericMatrix<ElemDst> cast() const;
+    GenericMatrix<Elem> roi(size_type row1, size_type col1, size_type row2, size_type col2);
 
     GenericMatrix<Elem> &operator+=(const GenericMatrix<Elem> &m);
     GenericMatrix<Elem> &operator-=(const GenericMatrix<Elem> &m);
@@ -91,6 +107,8 @@ public:
     bool operator==(const GenericMatrix<Elem> &m) const;
     bool operator!=(const GenericMatrix<Elem> &m) const;
 
+    template<typename __ElemDTo, typename __Elem>
+    friend GenericMatrix<__ElemDTo> matrix_cast(const GenericMatrix<__Elem> &m);
     template<typename __Elem>
     friend GenericMatrix<__Elem> operator+(const GenericMatrix<__Elem> &m1, const GenericMatrix<__Elem> &m2);
     template<typename __Elem>
@@ -112,6 +130,7 @@ private:
     void alloc();
     void free();
     size_type computeOffset(size_type row, size_type col) const;
+    bool containsIndex(size_type row, size_type col) const;
 
 private:
     size_type m_rows;
@@ -218,12 +237,24 @@ void GenericMatrix<Elem>::free()
 /*!
     \internal
 
-    Compute internal data offset by \a row and \a col.
+    Compute internal data offset by \a row index and \a col index.
 */
 template<typename Elem>
 typename GenericMatrix<Elem>::size_type GenericMatrix<Elem>::computeOffset(size_type row, size_type col) const
 {
     return row * m_cols + col;
+}
+
+/*!
+    \internal
+
+    Returns true if \a row index is less than this matrix rows 
+    and \a col index is less than this matrix cols, otherwise return false.
+*/
+template<typename Elem>
+bool GenericMatrix<Elem>::containsIndex(size_type row, size_type col) const
+{
+    return (row < m_rows && col < m_cols);
 }
 
 /*!
@@ -286,6 +317,42 @@ GenericMatrix<Elem> &GenericMatrix<Elem>::operator=(GenericMatrix &&other) noexc
     return *this;
 }
 
+template<typename Elem>
+typename GenericMatrix<Elem>::iterator GenericMatrix<Elem>::begin() noexcept
+{
+    return m_data;
+}
+
+template<typename Elem>
+typename GenericMatrix<Elem>::const_iterator GenericMatrix<Elem>::begin() const noexcept
+{
+    return m_data;
+}
+
+template<typename Elem>
+typename GenericMatrix<Elem>::const_iterator GenericMatrix<Elem>::cbegin() const noexcept
+{
+    return m_data;
+}
+
+template<typename Elem>
+typename GenericMatrix<Elem>::iterator GenericMatrix<Elem>::end() noexcept
+{
+    return m_data + size();
+}
+
+template<typename Elem>
+typename GenericMatrix<Elem>::const_iterator GenericMatrix<Elem>::end() const noexcept
+{
+    return m_data + size();
+}
+
+template<typename Elem>
+typename GenericMatrix<Elem>::const_iterator GenericMatrix<Elem>::cend() const noexcept
+{
+    return m_data + size();
+}
+
 /*!
     Returns the number of matrix rows.
 
@@ -325,7 +392,7 @@ typename GenericMatrix<Elem>::size_type GenericMatrix<Elem>::size() const
     \sa constData()
 */
 template<typename Elem>
-Elem *GenericMatrix<Elem>::data()
+Elem *GenericMatrix<Elem>::data() noexcept
 {
     return m_data;
 }
@@ -336,7 +403,7 @@ Elem *GenericMatrix<Elem>::data()
     \sa constData()
 */
 template<typename Elem>
-const Elem *GenericMatrix<Elem>::data() const
+const Elem *GenericMatrix<Elem>::data() const noexcept
 {
     return m_data;
 }
@@ -347,9 +414,92 @@ const Elem *GenericMatrix<Elem>::data() const
     \sa data()
 */
 template<typename Elem>
-const Elem *GenericMatrix<Elem>::constData() const
+const Elem *GenericMatrix<Elem>::constData() const noexcept
 {
     return m_data;
+}
+
+/*!
+    Returns a offset \a row and \a col pointer to the raw data of this matrix.
+
+    \note No bounds checking is performed.
+
+    \sa dataAt()
+*/
+template<typename Elem>
+Elem *GenericMatrix<Elem>::data(size_type row, size_type col) noexcept
+{
+    return m_data + computeOffset(row, col);
+}
+
+/*!
+    Returns a constant offset \a row and \a col pointer to the raw data of this matrix.
+
+    \note No bounds checking is performed.
+
+    \sa dataAt()
+*/
+template<typename Elem>
+const Elem *GenericMatrix<Elem>::data(size_type row, size_type col) const noexcept
+{
+    return m_data + computeOffset(row, col);
+}
+
+/*!
+    Returns a constant offset \a row and \a col pointer to the raw data of this matrix.
+
+    \note No bounds checking is performed.
+
+    \sa constDataAt()
+*/
+template<typename Elem>
+const Elem *GenericMatrix<Elem>::constData(size_type row, size_type col) const noexcept
+{
+    return m_data + computeOffset(row, col);
+}
+
+/*!
+    Returns a offset \a row and \a col pointer to the raw data of this matrix.
+
+    If \a row or \a col out of range, returns end();
+
+    \sa constDataAt()
+*/
+template<typename Elem>
+Elem *GenericMatrix<Elem>::dataAt(size_type row, size_type col) noexcept
+{
+    if (row > m_rows || col > m_cols)
+        return end();
+    return m_data + computeOffset(row, col);
+}
+
+/*!
+    Returns a constant offset \a row and \a col pointer to the raw data of this matrix.
+
+    If \a row or \a col out of range, returns end();
+
+    \sa constDataAt()
+*/
+template<typename Elem>
+const Elem *GenericMatrix<Elem>::dataAt(size_type row, size_type col) const noexcept
+{
+    if (row > m_rows || col > m_cols)
+        return end();
+    return m_data + computeOffset(row, col);
+}
+
+/*!
+    Returns a constant offset \a row and \a col pointer to the raw data of this matrix.
+    If \a row or \a col out of range, returns end();
+
+    \sa dataAt()
+*/
+template<typename Elem>
+const Elem *GenericMatrix<Elem>::constDataAt(size_type row, size_type col) const noexcept
+{
+    if (row > m_rows || col > m_cols)
+        return end();
+    return m_data + computeOffset(row, col);
 }
 
 /*!
@@ -422,7 +572,8 @@ bool GenericMatrix<Elem>::empty() const
 }
 
 /*!
-    Returns \c true if this matrix internal data is not null pointer and matrix rows/cols greater than 0, otherwise returns \c false.
+    Returns \c true if this matrix internal data is not null pointer 
+    and matrix rows/cols greater than 0, otherwise returns \c false.
 */
 template<typename Elem>
 bool GenericMatrix<Elem>::isValid() const
@@ -453,7 +604,7 @@ bool GenericMatrix<Elem>::isIdentity() const
 }
 
 /*!
-    Reconstructs a \a row x \a col matrix without initializing the contents.
+    Reconstructs a \a row x \a col identity matrix without initializing the contents.
 */
 template<typename Elem>
 void GenericMatrix<Elem>::resize(size_type row, size_type col)
@@ -470,7 +621,7 @@ void GenericMatrix<Elem>::resize(size_type row, size_type col)
 }
 
 /*!
-    Reconstructs a \a row x \a col matrix and initialize all values with \a initialValue.
+    Reconstructs a \a row x \a col identity matrix and initialize all values with \a initialValue.
 */
 template<typename Elem>
 void GenericMatrix<Elem>::resize(size_type row, size_type col, const Elem &initialValue)
@@ -513,6 +664,22 @@ void GenericMatrix<Elem>::setToIdentity()
 }
 
 /*!
+    Returns a new matrix reversed by this matrix.
+*/
+template<typename Elem>
+GenericMatrix<Elem> GenericMatrix<Elem>::reverse() const
+{
+    GenericMatrix<Elem> result(m_rows, m_cols);
+    auto reverse_it = m_data + size() - 1;
+    auto reverse_it_end = m_data - 1;
+    auto its = result.begin();
+    while (reverse_it != reverse_it_end) {
+        *its++ = *reverse_it--;
+    }
+    return result;
+}
+
+/*!
     Returns this matrix, transposed about its diagonal.
 */
 template<typename Elem>
@@ -521,7 +688,7 @@ GenericMatrix<Elem> GenericMatrix<Elem>::transposed() const
     GenericMatrix<Elem> result(m_cols, m_rows);
     for (size_type i = 0; i < m_cols; ++i) {
         for (size_type j = 0; j < m_rows; ++j) {
-            result(i, j) = m_data[computeOffset(i, j)];
+            result(i, j) = m_data[computeOffset(j, i)];
         }
     }  
     return result;
@@ -578,20 +745,22 @@ GenericMatrix<Elem> GenericMatrix<Elem>::hadamardProduct(const GenericMatrix<Ele
 }
 
 /*!
-    Returns a new element type matrix.
+    Extracts region of interest of this matrix.
 
-    \note The \b ElemDst must can do \c static_cast<ElemDst>(Elem).
+    \note No bounds checking is performed.
 */
 template<typename Elem>
-template<typename ElemDst>
-GenericMatrix<ElemDst> GenericMatrix<Elem>::cast() const
+GenericMatrix<Elem> GenericMatrix<Elem>::roi(size_type row1, size_type col1, size_type row2, size_type col2)
 {
-    GenericMatrix<ElemDst> result(m_rows, m_cols);
-    for (size_type i = 0; i < m_rows; ++i) {
-        for (size_type j = 0; j < m_cols; ++j) {
-            result(i, j) = static_cast<ElemDst>(m_data[computeOffset(i, j)]);
-        }
-    }      
+    if (!containsIndex(row1, col1) || !containsIndex(row2, col2)) {
+        return GenericMatrix<Elem>(); 
+    }
+    std::pair<size_type, size_type> rowMinMax = std::minmax(row1, row2);
+    std::pair<size_type, size_type> colMinMax = std::minmax(col1, col2);
+    GenericMatrix<Elem> result(rowMinMax.second - rowMinMax.first + 1, colMinMax.second - colMinMax.first + 1);
+    for (size_type i = rowMinMax.first; i <= rowMinMax.second; ++i) {
+        std::copy_n(constData(i, colMinMax.first), result.columns(), result.data((i - rowMinMax.first), 0));
+    }
     return result;
 }
 
@@ -747,6 +916,25 @@ bool GenericMatrix<Elem>::operator!=(const GenericMatrix<Elem> &m) const
 /*****************************************************************************
   friend functions
  *****************************************************************************/
+
+/*!
+    \relates GenericMatrix
+
+    Converts a matrix to a different type matrix.
+
+    \note The \b __ElemDst must can do \c static_cast<__ElemDst>(__Elem).
+*/
+template<typename __ElemDTo, typename __Elem>
+GenericMatrix<__ElemDTo> matrix_cast(const GenericMatrix<__Elem> &m)
+{
+    GenericMatrix<__ElemDTo> result(m.rows(), m.columns());
+    auto itm = m.begin();
+    auto its = result.begin();
+    while (itm != m.end()) {
+        *its++ = static_cast<__ElemDTo>(*itm++);
+    }
+    return result;
+}
 
 /*!
     \relates GenericMatrix
