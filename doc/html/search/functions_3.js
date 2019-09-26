@@ -1,4 +1,6 @@
 var searchData=
 [
-  ['empty',['empty',['../class_generic_matrix.html#afab3b7f36d89d669ed9a9cd152c50ee2',1,'GenericMatrix::empty()'],['../class_generic_matrix2.html#afe4b082b25dcc62ebd64f55b878408db',1,'GenericMatrix2::empty()']]]
+  ['data',['data',['../class_generic_matrix.html#aa38ff68cdc2493a68aaf4088fb8f844c',1,'GenericMatrix::data() noexcept'],['../class_generic_matrix.html#a19aa3e4cc89ec2cf224a78ff1f25210d',1,'GenericMatrix::data() const noexcept'],['../class_generic_matrix.html#a9a492c2ed4689947e9248b57d679c963',1,'GenericMatrix::data(size_type row, size_type col) noexcept'],['../class_generic_matrix.html#a0f3931aa2f17fb3ff44f52ba98b75b7b',1,'GenericMatrix::data(size_type row, size_type col) const noexcept'],['../class_generic_matrix2.html#a7f29ada76198733eb2e786cea2a8a94f',1,'GenericMatrix2::data()'],['../class_generic_matrix2.html#a1c4b650103f7e0a1eea225fabb36378a',1,'GenericMatrix2::data() const']]],
+  ['dataat',['dataAt',['../class_generic_matrix.html#ade8124465fd2fea0a13861bb22a95bc9',1,'GenericMatrix::dataAt(size_type row, size_type col) noexcept'],['../class_generic_matrix.html#a200d6256729cd3afde33d700147666da',1,'GenericMatrix::dataAt(size_type row, size_type col) const noexcept']]],
+  ['dohadamardproduct',['doHadamardProduct',['../class_generic_matrix.html#afc83674642bae1c22fc13dd7ae26aa30',1,'GenericMatrix::doHadamardProduct()'],['../class_generic_matrix2.html#a81f1b5590caca1d1416d93c41338c811',1,'GenericMatrix2::doHadamardProduct()']]]
 ];

@@ -159,9 +159,6 @@ Public Member Functions</h2></td></tr>
 <tr class="separator:a30cd2842d6c451e08cc88c789cef91bc"><td class="memSeparator" colspan="2">&#160;</td></tr>
 <tr class="memitem:a81f1b5590caca1d1416d93c41338c811"><td class="memItemLeft" align="right" valign="top">void&#160;</td><td class="memItemRight" valign="bottom"><a class="el" href="class_generic_matrix2.html#a81f1b5590caca1d1416d93c41338c811">doHadamardProduct</a> (const <a class="el" href="class_generic_matrix2.html">GenericMatrix2</a>&lt; Elem &gt; &amp;m)</td></tr>
 <tr class="separator:a81f1b5590caca1d1416d93c41338c811"><td class="memSeparator" colspan="2">&#160;</td></tr>
-<tr class="memitem:aefc3be380a26ff1350807dc219f4786a"><td class="memTemplParams" colspan="2">template&lt;typename ElemDst &gt; </td></tr>
-<tr class="memitem:aefc3be380a26ff1350807dc219f4786a"><td class="memTemplItemLeft" align="right" valign="top"><a class="el" href="class_generic_matrix2.html">GenericMatrix2</a>&lt; ElemDst &gt;&#160;</td><td class="memTemplItemRight" valign="bottom"><a class="el" href="class_generic_matrix2.html#aefc3be380a26ff1350807dc219f4786a">cast</a> () const</td></tr>
-<tr class="separator:aefc3be380a26ff1350807dc219f4786a"><td class="memSeparator" colspan="2">&#160;</td></tr>
 <tr class="memitem:adac82d1a9fc033fb516423ef509572c6"><td class="memItemLeft" align="right" valign="top"><a class="el" href="class_generic_matrix2.html">GenericMatrix2</a>&lt; Elem &gt; &amp;&#160;</td><td class="memItemRight" valign="bottom"><a class="el" href="class_generic_matrix2.html#adac82d1a9fc033fb516423ef509572c6">operator+=</a> (const <a class="el" href="class_generic_matrix2.html">GenericMatrix2</a>&lt; Elem &gt; &amp;m)</td></tr>
 <tr class="separator:adac82d1a9fc033fb516423ef509572c6"><td class="memSeparator" colspan="2">&#160;</td></tr>
 <tr class="memitem:ad43784c5bb51d0d0e289b611227e8808"><td class="memItemLeft" align="right" valign="top"><a class="el" href="class_generic_matrix2.html">GenericMatrix2</a>&lt; Elem &gt; &amp;&#160;</td><td class="memItemRight" valign="bottom"><a class="el" href="class_generic_matrix2.html#ad43784c5bb51d0d0e289b611227e8808">operator-=</a> (const <a class="el" href="class_generic_matrix2.html">GenericMatrix2</a>&lt; Elem &gt; &amp;m)</td></tr>
@@ -186,6 +183,9 @@ Static Public Member Functions</h2></td></tr>
 </table><table class="memberdecls">
 <tr class="heading"><td colspan="2"><h2 class="groupheader"><a name="friends"></a>
 Friends</h2></td></tr>
+<tr class="memitem:a89f6d9d3d06715aab77b5131dde6dd21"><td class="memTemplParams" colspan="2">template&lt;typename __ElemDTo , typename __Elem &gt; </td></tr>
+<tr class="memitem:a89f6d9d3d06715aab77b5131dde6dd21"><td class="memTemplItemLeft" align="right" valign="top"><a class="el" href="class_generic_matrix2.html">GenericMatrix2</a>&lt; __ElemDTo &gt;&#160;</td><td class="memTemplItemRight" valign="bottom"><a class="el" href="class_generic_matrix2.html#a89f6d9d3d06715aab77b5131dde6dd21">matrix_cast</a> (const <a class="el" href="class_generic_matrix2.html">GenericMatrix2</a>&lt; __Elem &gt; &amp;m)</td></tr>
+<tr class="separator:a89f6d9d3d06715aab77b5131dde6dd21"><td class="memSeparator" colspan="2">&#160;</td></tr>
 <tr class="memitem:af000f6e149b44148f7bfecf4389d137c"><td class="memTemplParams" colspan="2">template&lt;typename __Elem &gt; </td></tr>
 <tr class="memitem:af000f6e149b44148f7bfecf4389d137c"><td class="memTemplItemLeft" align="right" valign="top"><a class="el" href="class_generic_matrix2.html">GenericMatrix2</a>&lt; __Elem &gt;&#160;</td><td class="memTemplItemRight" valign="bottom"><a class="el" href="class_generic_matrix2.html#af000f6e149b44148f7bfecf4389d137c">operator+</a> (const <a class="el" href="class_generic_matrix2.html">GenericMatrix2</a>&lt; __Elem &gt; &amp;m1, const <a class="el" href="class_generic_matrix2.html">GenericMatrix2</a>&lt; __Elem &gt; &amp;m2)</td></tr>
 <tr class="separator:af000f6e149b44148f7bfecf4389d137c"><td class="memSeparator" colspan="2">&#160;</td></tr>
@@ -220,7 +220,7 @@ class GenericMatrix2&lt; Elem &gt;</h3>
 <li><b>Elem</b> Element type that is visible to users of the class. </li>
 </ul>
 
-<p class="definition">Definition at line <a class="el" href="_generic_matrix2_8h_source.html#l00037">37</a> of file <a class="el" href="_generic_matrix2_8h_source.html">GenericMatrix2.h</a>.</p>
+<p class="definition">Definition at line <a class="el" href="_generic_matrix2_8h_source.html#l00038">38</a> of file <a class="el" href="_generic_matrix2_8h_source.html">GenericMatrix2.h</a>.</p>
 </div><h2 class="groupheader">Member Typedef Documentation</h2>
 <a id="a7ea1cb798f7ce6af8ac20d1bb6204fbe"></a>
 <h2 class="memtitle"><span class="permalink"><a href="#a7ea1cb798f7ce6af8ac20d1bb6204fbe">&#9670;&nbsp;</a></span>size_type</h2>
@@ -237,7 +237,7 @@ template&lt;typename Elem = float&gt; </div>
 </div><div class="memdoc">
 <p>Type for declaring the matrix's rows and columns. </p>
 
-<p class="definition">Definition at line <a class="el" href="_generic_matrix2_8h_source.html#l00040">40</a> of file <a class="el" href="_generic_matrix2_8h_source.html">GenericMatrix2.h</a>.</p>
+<p class="definition">Definition at line <a class="el" href="_generic_matrix2_8h_source.html#l00041">41</a> of file <a class="el" href="_generic_matrix2_8h_source.html">GenericMatrix2.h</a>.</p>
 
 </div>
 </div>
@@ -256,7 +256,7 @@ template&lt;typename Elem = float&gt; </div>
 </div><div class="memdoc">
 <p>The value type of the template parameter <em>Elem</em>. </p>
 
-<p class="definition">Definition at line <a class="el" href="_generic_matrix2_8h_source.html#l00041">41</a> of file <a class="el" href="_generic_matrix2_8h_source.html">GenericMatrix2.h</a>.</p>
+<p class="definition">Definition at line <a class="el" href="_generic_matrix2_8h_source.html#l00042">42</a> of file <a class="el" href="_generic_matrix2_8h_source.html">GenericMatrix2.h</a>.</p>
 
 </div>
 </div>
@@ -574,31 +574,6 @@ template&lt;typename Elem &gt; </div>
 
 </div>
 </div>
-<a id="aefc3be380a26ff1350807dc219f4786a"></a>
-<h2 class="memtitle"><span class="permalink"><a href="#aefc3be380a26ff1350807dc219f4786a">&#9670;&nbsp;</a></span>cast()</h2>
-
-<div class="memitem">
-<div class="memproto">
-<div class="memtemplate">
-template&lt;typename Elem &gt; </div>
-<div class="memtemplate">
-template&lt;typename ElemDst &gt; </div>
-      <table class="memname">
-        <tr>
-          <td class="memname"><a class="el" href="class_generic_matrix2.html">GenericMatrix2</a>&lt; ElemDst &gt; <a class="el" href="class_generic_matrix2.html">GenericMatrix2</a>&lt; Elem &gt;::cast </td>
-          <td>(</td>
-          <td class="paramname"></td><td>)</td>
-          <td> const</td>
-        </tr>
-      </table>
-</div><div class="memdoc">
-<p>Returns a new element type matrix.</p>
-<dl class="section note"><dt>Note</dt><dd>The <b>ElemDst</b> must can do <code>static_cast&lt;ElemDst&gt;(Elem)</code>. </dd></dl>
-
-<p class="definition">Definition at line <a class="el" href="_generic_matrix2_8h_source.html#l00669">669</a> of file <a class="el" href="_generic_matrix2_8h_source.html">GenericMatrix2.h</a>.</p>
-
-</div>
-</div>
 <a id="a2ebe727fbb2de5b961efd155bee328d4"></a>
 <h2 class="memtitle"><span class="permalink"><a href="#a2ebe727fbb2de5b961efd155bee328d4">&#9670;&nbsp;</a></span>columns()</h2>
 
@@ -742,7 +717,7 @@ template&lt;typename Elem &gt; </div>
 </dl>
 <dl class="section see"><dt>See also</dt><dd><a class="el" href="class_generic_matrix2.html#a505c457f6074ff084f442fd9b67fd7ff">hadamardProduct()</a> </dd></dl>
 
-<p class="definition">Definition at line <a class="el" href="_generic_matrix2_8h_source.html#l00628">628</a> of file <a class="el" href="_generic_matrix2_8h_source.html">GenericMatrix2.h</a>.</p>
+<p class="definition">Definition at line <a class="el" href="_generic_matrix2_8h_source.html#l00626">626</a> of file <a class="el" href="_generic_matrix2_8h_source.html">GenericMatrix2.h</a>.</p>
 
 </div>
 </div>
@@ -835,7 +810,7 @@ template&lt;typename Elem &gt; </div>
 </dl>
 <dl class="section see"><dt>See also</dt><dd><a class="el" href="class_generic_matrix2.html#a81f1b5590caca1d1416d93c41338c811">doHadamardProduct()</a> </dd></dl>
 
-<p class="definition">Definition at line <a class="el" href="_generic_matrix2_8h_source.html#l00648">648</a> of file <a class="el" href="_generic_matrix2_8h_source.html">GenericMatrix2.h</a>.</p>
+<p class="definition">Definition at line <a class="el" href="_generic_matrix2_8h_source.html#l00646">646</a> of file <a class="el" href="_generic_matrix2_8h_source.html">GenericMatrix2.h</a>.</p>
 
 </div>
 </div>
@@ -877,7 +852,7 @@ template&lt;typename Elem &gt; </div>
 <p>Returns <code>true</code> if matrix <em>m1</em> and matrix <em>m2</em> are homomorphic; false otherwise.</p>
 <dl class="section see"><dt>See also</dt><dd><a class="el" href="class_generic_matrix2.html#ab8c73e7def9f7d7d11f6c14bc6dfe3fc">isHomomorphicTo()</a> </dd></dl>
 
-<p class="definition">Definition at line <a class="el" href="_generic_matrix2_8h_source.html#l00697">697</a> of file <a class="el" href="_generic_matrix2_8h_source.html">GenericMatrix2.h</a>.</p>
+<p class="definition">Definition at line <a class="el" href="_generic_matrix2_8h_source.html#l00677">677</a> of file <a class="el" href="_generic_matrix2_8h_source.html">GenericMatrix2.h</a>.</p>
 
 </div>
 </div>
@@ -909,7 +884,7 @@ template&lt;typename Elem &gt; </div>
 <p>Returns <code>true</code> if this matrix and matrix <em>m</em> are homomorphic; false otherwise.</p>
 <dl class="section see"><dt>See also</dt><dd><a class="el" href="class_generic_matrix2.html#ae2557657b596ff3b90adcefff3af98f2">isHomomorphic()</a> </dd></dl>
 
-<p class="definition">Definition at line <a class="el" href="_generic_matrix2_8h_source.html#l00686">686</a> of file <a class="el" href="_generic_matrix2_8h_source.html">GenericMatrix2.h</a>.</p>
+<p class="definition">Definition at line <a class="el" href="_generic_matrix2_8h_source.html#l00666">666</a> of file <a class="el" href="_generic_matrix2_8h_source.html">GenericMatrix2.h</a>.</p>
 
 </div>
 </div>
@@ -983,7 +958,7 @@ template&lt;typename Elem &gt; </div>
   </dd>
 </dl>
 
-<p class="definition">Definition at line <a class="el" href="_generic_matrix2_8h_source.html#l00759">759</a> of file <a class="el" href="_generic_matrix2_8h_source.html">GenericMatrix2.h</a>.</p>
+<p class="definition">Definition at line <a class="el" href="_generic_matrix2_8h_source.html#l00739">739</a> of file <a class="el" href="_generic_matrix2_8h_source.html">GenericMatrix2.h</a>.</p>
 
 </div>
 </div>
@@ -1007,7 +982,7 @@ template&lt;typename Elem &gt; </div>
 <p>Multiplies all elements of this matrix by <em>factor</em>.</p>
 <dl class="section see"><dt>See also</dt><dd><a class="el" href="class_generic_matrix2.html#ab1aea86320390c480bd8bb2756771e0b">operator/=()</a> </dd></dl>
 
-<p class="definition">Definition at line <a class="el" href="_generic_matrix2_8h_source.html#l00781">781</a> of file <a class="el" href="_generic_matrix2_8h_source.html">GenericMatrix2.h</a>.</p>
+<p class="definition">Definition at line <a class="el" href="_generic_matrix2_8h_source.html#l00761">761</a> of file <a class="el" href="_generic_matrix2_8h_source.html">GenericMatrix2.h</a>.</p>
 
 </div>
 </div>
@@ -1031,7 +1006,7 @@ template&lt;typename Elem &gt; </div>
 <p>Returns <code>true</code> if this matrix is not identical to <em>m</em>; false otherwise.</p>
 <dl class="section see"><dt>See also</dt><dd><a class="el" href="class_generic_matrix2.html#a55fb62d6e871c12826774f920802f52e">operator==()</a> </dd></dl>
 
-<p class="definition">Definition at line <a class="el" href="_generic_matrix2_8h_source.html#l00830">830</a> of file <a class="el" href="_generic_matrix2_8h_source.html">GenericMatrix2.h</a>.</p>
+<p class="definition">Definition at line <a class="el" href="_generic_matrix2_8h_source.html#l00810">810</a> of file <a class="el" href="_generic_matrix2_8h_source.html">GenericMatrix2.h</a>.</p>
 
 </div>
 </div>
@@ -1131,7 +1106,7 @@ template&lt;typename Elem &gt; </div>
 </dl>
 <dl class="section see"><dt>See also</dt><dd><a class="el" href="class_generic_matrix2.html#ad43784c5bb51d0d0e289b611227e8808">operator-=()</a> </dd></dl>
 
-<p class="definition">Definition at line <a class="el" href="_generic_matrix2_8h_source.html#l00719">719</a> of file <a class="el" href="_generic_matrix2_8h_source.html">GenericMatrix2.h</a>.</p>
+<p class="definition">Definition at line <a class="el" href="_generic_matrix2_8h_source.html#l00699">699</a> of file <a class="el" href="_generic_matrix2_8h_source.html">GenericMatrix2.h</a>.</p>
 
 </div>
 </div>
@@ -1161,7 +1136,7 @@ template&lt;typename Elem &gt; </div>
 </dl>
 <dl class="section see"><dt>See also</dt><dd><a class="el" href="class_generic_matrix2.html#adac82d1a9fc033fb516423ef509572c6">operator+=()</a> </dd></dl>
 
-<p class="definition">Definition at line <a class="el" href="_generic_matrix2_8h_source.html#l00740">740</a> of file <a class="el" href="_generic_matrix2_8h_source.html">GenericMatrix2.h</a>.</p>
+<p class="definition">Definition at line <a class="el" href="_generic_matrix2_8h_source.html#l00720">720</a> of file <a class="el" href="_generic_matrix2_8h_source.html">GenericMatrix2.h</a>.</p>
 
 </div>
 </div>
@@ -1185,7 +1160,7 @@ template&lt;typename Elem &gt; </div>
 <p>Divides all elements of this matrix by <em>divisor</em>.</p>
 <dl class="section see"><dt>See also</dt><dd><a class="el" href="class_generic_matrix2.html#ae5b91d4c3d4e697784a59a64e098f51c">operator*=()</a> </dd></dl>
 
-<p class="definition">Definition at line <a class="el" href="_generic_matrix2_8h_source.html#l00797">797</a> of file <a class="el" href="_generic_matrix2_8h_source.html">GenericMatrix2.h</a>.</p>
+<p class="definition">Definition at line <a class="el" href="_generic_matrix2_8h_source.html#l00777">777</a> of file <a class="el" href="_generic_matrix2_8h_source.html">GenericMatrix2.h</a>.</p>
 
 </div>
 </div>
@@ -1263,7 +1238,7 @@ template&lt;typename Elem &gt; </div>
 <p>Returns <code>true</code> if this matrix is identical to <em>m</em>; false otherwise.</p>
 <dl class="section see"><dt>See also</dt><dd><a class="el" href="class_generic_matrix2.html#ade3628d07cad0037f321800d9c35ed3e">operator!=()</a> </dd></dl>
 
-<p class="definition">Definition at line <a class="el" href="_generic_matrix2_8h_source.html#l00813">813</a> of file <a class="el" href="_generic_matrix2_8h_source.html">GenericMatrix2.h</a>.</p>
+<p class="definition">Definition at line <a class="el" href="_generic_matrix2_8h_source.html#l00793">793</a> of file <a class="el" href="_generic_matrix2_8h_source.html">GenericMatrix2.h</a>.</p>
 
 </div>
 </div>
@@ -1527,7 +1502,7 @@ template&lt;typename Elem &gt; </div>
 </div><div class="memdoc">
 <p>Swaps matrix <em>other</em> with this matrix. </p>
 
-<p class="definition">Definition at line <a class="el" href="_generic_matrix2_8h_source.html#l00706">706</a> of file <a class="el" href="_generic_matrix2_8h_source.html">GenericMatrix2.h</a>.</p>
+<p class="definition">Definition at line <a class="el" href="_generic_matrix2_8h_source.html#l00686">686</a> of file <a class="el" href="_generic_matrix2_8h_source.html">GenericMatrix2.h</a>.</p>
 
 </div>
 </div>
@@ -1554,6 +1529,40 @@ template&lt;typename Elem &gt; </div>
 </div>
 </div>
 <h2 class="groupheader">Friends And Related Function Documentation</h2>
+<a id="a89f6d9d3d06715aab77b5131dde6dd21"></a>
+<h2 class="memtitle"><span class="permalink"><a href="#a89f6d9d3d06715aab77b5131dde6dd21">&#9670;&nbsp;</a></span>matrix_cast</h2>
+
+<div class="memitem">
+<div class="memproto">
+<div class="memtemplate">
+template&lt;typename Elem = float&gt; </div>
+<div class="memtemplate">
+template&lt;typename __ElemDTo , typename __Elem &gt; </div>
+<table class="mlabels">
+  <tr>
+  <td class="mlabels-left">
+      <table class="memname">
+        <tr>
+          <td class="memname"><a class="el" href="class_generic_matrix2.html">GenericMatrix2</a>&lt; __ElemDTo &gt; matrix_cast </td>
+          <td>(</td>
+          <td class="paramtype">const <a class="el" href="class_generic_matrix2.html">GenericMatrix2</a>&lt; __Elem &gt; &amp;&#160;</td>
+          <td class="paramname"><em>m</em></td><td>)</td>
+          <td></td>
+        </tr>
+      </table>
+  </td>
+  <td class="mlabels-right">
+<span class="mlabels"><span class="mlabel">friend</span></span>  </td>
+  </tr>
+</table>
+</div><div class="memdoc">
+<p>Converts a matrix to a different type matrix.</p>
+<dl class="section note"><dt>Note</dt><dd>The <b>__ElemDst</b> must can do <code>static_cast&lt;__ElemDst&gt;(__Elem)</code>. </dd></dl>
+
+<p class="definition">Definition at line <a class="el" href="_generic_matrix2_8h_source.html#l00833">833</a> of file <a class="el" href="_generic_matrix2_8h_source.html">GenericMatrix2.h</a>.</p>
+
+</div>
+</div>
 <a id="ab903b4a0498ab225fd42157b241180d8"></a>
 <h2 class="memtitle"><span class="permalink"><a href="#ab903b4a0498ab225fd42157b241180d8">&#9670;&nbsp;</a></span>operator * <span class="overload">[1/3]</span></h2>
 
@@ -1599,7 +1608,7 @@ template&lt;typename __Elem &gt; </div>
   </dd>
 </dl>
 
-<p class="definition">Definition at line <a class="el" href="_generic_matrix2_8h_source.html#l00901">901</a> of file <a class="el" href="_generic_matrix2_8h_source.html">GenericMatrix2.h</a>.</p>
+<p class="definition">Definition at line <a class="el" href="_generic_matrix2_8h_source.html#l00900">900</a> of file <a class="el" href="_generic_matrix2_8h_source.html">GenericMatrix2.h</a>.</p>
 
 </div>
 </div>
@@ -1642,7 +1651,7 @@ template&lt;typename __Elem &gt; </div>
 </div><div class="memdoc">
 <p>Returns the result of multiplying all elements of <em>matrix</em> by <em>factor</em>. </p>
 
-<p class="definition">Definition at line <a class="el" href="_generic_matrix2_8h_source.html#l00924">924</a> of file <a class="el" href="_generic_matrix2_8h_source.html">GenericMatrix2.h</a>.</p>
+<p class="definition">Definition at line <a class="el" href="_generic_matrix2_8h_source.html#l00923">923</a> of file <a class="el" href="_generic_matrix2_8h_source.html">GenericMatrix2.h</a>.</p>
 
 </div>
 </div>
@@ -1685,7 +1694,7 @@ template&lt;typename __Elem &gt; </div>
 </div><div class="memdoc">
 <p>Returns the result of multiplying all elements of <em>matrix</em> by <em>factor</em>. </p>
 
-<p class="definition">Definition at line <a class="el" href="_generic_matrix2_8h_source.html#l00942">942</a> of file <a class="el" href="_generic_matrix2_8h_source.html">GenericMatrix2.h</a>.</p>
+<p class="definition">Definition at line <a class="el" href="_generic_matrix2_8h_source.html#l00941">941</a> of file <a class="el" href="_generic_matrix2_8h_source.html">GenericMatrix2.h</a>.</p>
 
 </div>
 </div>
@@ -1734,7 +1743,7 @@ template&lt;typename __Elem &gt; </div>
   </dd>
 </dl>
 
-<p class="definition">Definition at line <a class="el" href="_generic_matrix2_8h_source.html#l00854">854</a> of file <a class="el" href="_generic_matrix2_8h_source.html">GenericMatrix2.h</a>.</p>
+<p class="definition">Definition at line <a class="el" href="_generic_matrix2_8h_source.html#l00853">853</a> of file <a class="el" href="_generic_matrix2_8h_source.html">GenericMatrix2.h</a>.</p>
 
 </div>
 </div>
@@ -1783,7 +1792,7 @@ template&lt;typename __Elem &gt; </div>
   </dd>
 </dl>
 
-<p class="definition">Definition at line <a class="el" href="_generic_matrix2_8h_source.html#l00877">877</a> of file <a class="el" href="_generic_matrix2_8h_source.html">GenericMatrix2.h</a>.</p>
+<p class="definition">Definition at line <a class="el" href="_generic_matrix2_8h_source.html#l00876">876</a> of file <a class="el" href="_generic_matrix2_8h_source.html">GenericMatrix2.h</a>.</p>
 
 </div>
 </div>
@@ -1816,7 +1825,7 @@ template&lt;typename __Elem &gt; </div>
 </div><div class="memdoc">
 <p>Returns the negation of <em>matrix</em>. </p>
 
-<p class="definition">Definition at line <a class="el" href="_generic_matrix2_8h_source.html#l00978">978</a> of file <a class="el" href="_generic_matrix2_8h_source.html">GenericMatrix2.h</a>.</p>
+<p class="definition">Definition at line <a class="el" href="_generic_matrix2_8h_source.html#l00977">977</a> of file <a class="el" href="_generic_matrix2_8h_source.html">GenericMatrix2.h</a>.</p>
 
 </div>
 </div>
@@ -1859,7 +1868,7 @@ template&lt;typename __Elem &gt; </div>
 </div><div class="memdoc">
 <p>Returns the result of dividing all elements of <em>matrix</em> by <em>divisor</em>. </p>
 
-<p class="definition">Definition at line <a class="el" href="_generic_matrix2_8h_source.html#l00960">960</a> of file <a class="el" href="_generic_matrix2_8h_source.html">GenericMatrix2.h</a>.</p>
+<p class="definition">Definition at line <a class="el" href="_generic_matrix2_8h_source.html#l00959">959</a> of file <a class="el" href="_generic_matrix2_8h_source.html">GenericMatrix2.h</a>.</p>
 
 </div>
 </div>
@@ -1902,7 +1911,7 @@ template&lt;typename __Elem &gt; </div>
 </div><div class="memdoc">
 <p>Writes the given <em>matrix</em> to the given <em>stream</em> and returns a reference to the stream. </p>
 
-<p class="definition">Definition at line <a class="el" href="_generic_matrix2_8h_source.html#l00997">997</a> of file <a class="el" href="_generic_matrix2_8h_source.html">GenericMatrix2.h</a>.</p>
+<p class="definition">Definition at line <a class="el" href="_generic_matrix2_8h_source.html#l00996">996</a> of file <a class="el" href="_generic_matrix2_8h_source.html">GenericMatrix2.h</a>.</p>
 
 </div>
 </div>

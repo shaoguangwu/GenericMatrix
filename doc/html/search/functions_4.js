@@ -1,4 +1,5 @@
 var searchData=
 [
-  ['fill',['fill',['../class_generic_matrix.html#a1eec667eeff09979b7698a8ffd3dd303',1,'GenericMatrix::fill()'],['../class_generic_matrix2.html#a24a0e5b0f3ac1b2811f19279a01faa4f',1,'GenericMatrix2::fill()']]]
+  ['empty',['empty',['../class_generic_matrix.html#afab3b7f36d89d669ed9a9cd152c50ee2',1,'GenericMatrix::empty()'],['../class_generic_matrix2.html#afe4b082b25dcc62ebd64f55b878408db',1,'GenericMatrix2::empty()']]],
+  ['end',['end',['../class_generic_matrix.html#aa086d913524a085e695c264e31642fa8',1,'GenericMatrix::end() noexcept'],['../class_generic_matrix.html#a7743705716fb214465e2f7b9424d043a',1,'GenericMatrix::end() const noexcept']]]
 ];

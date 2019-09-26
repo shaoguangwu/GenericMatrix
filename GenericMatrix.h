@@ -42,8 +42,6 @@ public:
     using value_type = Elem;
     using iterator = value_type *;
     using const_iterator = const iterator;
-    using reverse_iterator = value_type *;
-    using const_reverse_iterator = const value_type * ;
 
     GenericMatrix();
     GenericMatrix(size_type row, size_type col);
@@ -149,6 +147,18 @@ private:
     \typedef GenericMatrix::value_type
 
     The value type of the template parameter \a Elem.
+*/
+
+/*!
+    \typedef GenericMatrix::iterator
+
+    An STL-style non-const iterator for GenericMatrix. 
+*/
+
+/*!
+    \typedef GenericMatrix::const_iterator
+
+    An STL-style const iterator for GenericMatrix.
 */
 
 /*!
