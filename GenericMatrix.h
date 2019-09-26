@@ -126,7 +126,9 @@ public:
 
 private:
     void alloc();
+    void alloc(size_type row, size_type col);
     void free();
+    void setSize(size_type row, size_type col);
     size_type computeOffset(size_type row, size_type col) const;
     bool containsIndex(size_type row, size_type col) const;
 
@@ -233,6 +235,19 @@ void GenericMatrix<Elem>::alloc()
 /*!
     \internal
 
+    Alloc the matrix memory from \a row and \a col.
+*/
+template<typename Elem>
+void GenericMatrix<Elem>::alloc(size_type row, size_type col)
+{
+    if (row > 0 && col > 0) {
+        m_data = new Elem[row * col];
+    }
+}
+
+/*!
+    \internal
+
     Frees the matrix memory.
 */
 template<typename Elem>
@@ -242,6 +257,18 @@ void GenericMatrix<Elem>::free()
         delete[] m_data; 
         m_data = nullptr;
     }
+}
+
+/*!
+    \internal
+
+    Sets this matrix's rows and columns with parameter \a row and \a col.
+*/
+template<typename Elem>
+void GenericMatrix<Elem>::setSize(size_type row, size_type col)
+{
+    m_rows = row;
+    m_cols = col;
 }
 
 /*!
@@ -286,8 +313,7 @@ GenericMatrix<Elem>::GenericMatrix(GenericMatrix &&other) noexcept
     : m_rows(other.m_rows), m_cols(other.m_cols), m_data(other.m_data)
 {
     other.m_data = nullptr;
-    other.m_rows = 0;
-    other.m_cols = 0;
+    other.setSize(0, 0);
 }
 
 /*!
@@ -300,7 +326,7 @@ GenericMatrix<Elem> &GenericMatrix<Elem>::operator=(const GenericMatrix &other)
         return *this;
     }
 
-    this->resize(other.rows(), other.columns());
+    resize(other.rows(), other.columns());
     std::fill_n(other.m_data, other.size(), m_data);
 
     return *this;
@@ -317,12 +343,9 @@ GenericMatrix<Elem> &GenericMatrix<Elem>::operator=(GenericMatrix &&other) noexc
     }
     free();
 
-    m_rows = other.rows();  
-    m_cols = other.columns();
-    other.m_rows = 0; 
-    other.m_cols = 0;
-    m_data = other.m_data; 
-    other.m_data = nullptr;
+    setSize(other.m_rows, other.m_cols);
+    other.setSize(0, 0);
+    std::swap(m_data. other.m_data);
 
     return *this;
 }
@@ -588,7 +611,7 @@ bool GenericMatrix<Elem>::empty() const
 template<typename Elem>
 bool GenericMatrix<Elem>::isValid() const
 {
-    return m_data && m_rows > 0 && m_cols > 0;
+    return m_data && size() > 0;
 }
 
 /*!
@@ -621,13 +644,9 @@ void GenericMatrix<Elem>::resize(size_type row, size_type col)
 {
     if (this->size() != row * col) {
         free();
-        m_rows = row;
-        m_cols = col;
-        alloc();
-    } else {
-        m_rows = row;
-        m_cols = col;
-    }
+        alloc(row, col);
+    } 
+    setSize(row, col);
 }
 
 /*!
