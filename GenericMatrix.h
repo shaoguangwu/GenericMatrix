@@ -327,7 +327,7 @@ GenericMatrix<Elem> &GenericMatrix<Elem>::operator=(const GenericMatrix &other)
     }
 
     resize(other.rows(), other.columns());
-    std::fill_n(other.m_data, other.size(), m_data);
+    std::copy_n(other.m_data, other.size(), m_data);
 
     return *this;
 }
