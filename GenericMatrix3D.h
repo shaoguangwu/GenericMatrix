@@ -63,6 +63,9 @@ public:
     Elem *data() noexcept;
     const Elem *data() const noexcept;
     const Elem *constData() const noexcept;
+    Elem *data(size_type layer) noexcept;
+    const Elem *data(size_type layer) const noexcept;
+    const Elem *constData(size_type layer) const noexcept;
     Elem *data(size_type layer, size_type row, size_type col) noexcept;
     const Elem *data(size_type layer, size_type row, size_type col) const noexcept;
     const Elem *constData(size_type layer, size_type row, size_type col) const noexcept;
@@ -237,6 +240,21 @@ template<typename Elem>
 const Elem *GenericMatrix3D<Elem>::constData() const noexcept
 {
     return m_data;
+}
+template<typename Elem>
+Elem *GenericMatrix3D<Elem>::data(size_type layer) noexcept
+{
+    return m_data + layer * oneSize();
+}
+template<typename Elem>
+const Elem *GenericMatrix3D<Elem>::data(size_type layer) const noexcept
+{
+    return m_data + layer * oneSize();
+}
+template<typename Elem>
+const Elem *GenericMatrix3D<Elem>::constData(size_type layer) const noexcept
+{
+    return m_data + layer * oneSize();
 }
 template<typename Elem>
 Elem *GenericMatrix3D<Elem>::data(size_type layer, size_type row, size_type col) noexcept
